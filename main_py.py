@@ -10,6 +10,7 @@ from core_client.model.data import Data
 from core_client.model.entity_request import EntityRequest
 from core_client.model.sign_request import SignRequest
 from core_client.model.sub_entity import SubEntity
+from core_client.model.sub_entity_metadata import SubEntityMetadata
 from core_client.model.prepared_validator_owner import PreparedValidatorOwner
 from core_client.model.prepared_validator_registered import PreparedValidatorRegistered
 from core_client.model.validator_allow_delegation import ValidatorAllowDelegation
@@ -19,6 +20,7 @@ from core_client.model.network_status_request import NetworkStatusRequest
 from core_client.model.construction_build_request import ConstructionBuildRequest
 from core_client.model.construction_submit_request import ConstructionSubmitRequest
 from core_client.model.resource_amount import ResourceAmount
+from core_client.model.stake_unit_resource_identifier import StakeUnitResourceIdentifier
 from core_client.model.token_resource_identifier import TokenResourceIdentifier
 from core_client.model.resource_identifier import ResourceIdentifier
 from core_client.model.rri import RRI
@@ -181,7 +183,6 @@ def set_validator_owner(owner):
               ]),
           ]
 
-
 def transfer_tokens(rri, amount, receiver):
     return lambda node_identifiers : [
             OperationGroup([
@@ -203,6 +204,64 @@ def transfer_tokens(rri, amount, receiver):
                 )
             ])
         ]
+
+def stake_tokens(rri, amount, validator):
+     return lambda node_identifiers : [
+             OperationGroup([
+                 Operation(
+                     type = "Resource",
+                     entity_identifier = node_identifiers.account_entity_identifier,
+                     amount = ResourceAmount(
+                         BigInteger('-' + amount),
+                         TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                     )
+                 ),
+                 Operation(
+                     type = "Resource",
+                     entity_identifier = EntityIdentifier(
+                        address = node_identifiers.account_entity_identifier.address,
+                        sub_entity = SubEntity(
+                            address = 'prepared_stake',
+                            metadata = SubEntityMetadata(
+                                validator_address = validator
+                            )
+                        )
+                     ),
+                     amount = ResourceAmount(
+                         BigInteger(amount),
+                         TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                     )
+                 )
+             ])
+         ]
+
+def unstake_stake_units(amount, validator):
+     return lambda node_identifiers : [
+             OperationGroup([
+                  Operation(
+                      type = "Resource",
+                      entity_identifier = node_identifiers.account_entity_identifier,
+                      amount = ResourceAmount(
+                          BigInteger('-' + amount),
+                          StakeUnitResourceIdentifier(type = "StakeUnit", validator_address = validator)
+                      )
+                  ),
+                  Operation(
+                      type = "Resource",
+                      entity_identifier = EntityIdentifier(
+                         address = node_identifiers.account_entity_identifier.address,
+                         sub_entity = SubEntity(
+                             address = 'prepared_unstake'
+                         )
+                      ),
+                      amount = ResourceAmount(
+                          BigInteger(amount),
+                          StakeUnitResourceIdentifier(type = "StakeUnit", validator_address = validator)
+                      )
+                  )
+              ])
+          ]
+
 
 def submit_action(api_client, actions):
     api = network_api.NetworkApi(api_client)
@@ -262,5 +321,7 @@ if __name__ == "__main__":
             # set_validator_allow_delegation(True)
             # set_validator_fee(500) # 5%
             # transfer_tokens('xrd_dr1qyrs8qwl', '1000', 'ddx1qspll7tm6464am4yypzn59p42g6a8qhkguhc269p3vhs27s5vq5h24sfvvdfj')
+            # stake_tokens('xrd_dr1qyrs8qwl', '90000000000000000000', 'dv1q0llj774w40wafpqg5apgd2jxhfc9aj897zk3gvt9uzh59rq9964vjryzf9')
+            # unstake_stake_units('100000000000000000', 'dv1q0llj774w40wafpqg5apgd2jxhfc9aj897zk3gvt9uzh59rq9964vjryzf9')
         ]
         print(submit_action(api_client, actions))

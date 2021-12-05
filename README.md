@@ -190,7 +190,7 @@ with core_client.ApiClient(configuration) as api_client:
                             sub_entity=SubEntity(
                                 address="address_example",
                                 metadata=SubEntityMetadata(
-                                    validator=ValidatorAddress("dv81QQFc9HeZTQLkQ2g5R"),
+                                    validator_address="validator_address_example",
                                     epoch_unlock=1,
                                 ),
                             ),
@@ -224,7 +224,7 @@ with core_client.ApiClient(configuration) as api_client:
             sub_entity=SubEntity(
                 address="address_example",
                 metadata=SubEntityMetadata(
-                    validator=ValidatorAddress("dv81QQFc9HeZTQLkQ2g5R"),
+                    validator_address="validator_address_example",
                     epoch_unlock=1,
                 ),
             ),
@@ -376,7 +376,6 @@ Class | Method | HTTP request | Description
  - [UnexpectedError](docs/UnexpectedError.md)
  - [UpSubstateFeeEntry](docs/UpSubstateFeeEntry.md)
  - [Validator](docs/Validator.md)
- - [ValidatorAddress](docs/ValidatorAddress.md)
  - [ValidatorAllowDelegation](docs/ValidatorAllowDelegation.md)
  - [ValidatorBFTData](docs/ValidatorBFTData.md)
  - [ValidatorData](docs/ValidatorData.md)

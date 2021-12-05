@@ -119,7 +119,6 @@ from core_client.model.unclaimed_radix_engine_address import UnclaimedRadixEngin
 from core_client.model.unexpected_error import UnexpectedError
 from core_client.model.up_substate_fee_entry import UpSubstateFeeEntry
 from core_client.model.validator import Validator
-from core_client.model.validator_address import ValidatorAddress
 from core_client.model.validator_allow_delegation import ValidatorAllowDelegation
 from core_client.model.validator_bft_data import ValidatorBFTData
 from core_client.model.validator_data import ValidatorData

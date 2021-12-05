@@ -52,7 +52,7 @@ with core_client.ApiClient() as api_client:
                             sub_entity=SubEntity(
                                 address="address_example",
                                 metadata=SubEntityMetadata(
-                                    validator=ValidatorAddress("dv81QQFc9HeZTQLkQ2g5R"),
+                                    validator_address="validator_address_example",
                                     epoch_unlock=1,
                                 ),
                             ),
@@ -86,7 +86,7 @@ with core_client.ApiClient() as api_client:
             sub_entity=SubEntity(
                 address="address_example",
                 metadata=SubEntityMetadata(
-                    validator=ValidatorAddress("dv81QQFc9HeZTQLkQ2g5R"),
+                    validator_address="validator_address_example",
                     epoch_unlock=1,
                 ),
             ),
