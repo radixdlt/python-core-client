@@ -9,7 +9,7 @@ core_client/api/engine_api.py
 core_client/api/entity_api.py
 core_client/api/mempool_api.py
 core_client/api/network_api.py
-core_client/api/sign_api.py
+core_client/api/node_api.py
 core_client/api/transactions_api.py
 core_client/api_client.py
 core_client/apis/__init__.py
@@ -83,7 +83,11 @@ core_client/model/network_identifier.py
 core_client/model/network_not_supported_error.py
 core_client/model/network_status_request.py
 core_client/model/network_status_response.py
-core_client/model/network_status_response_node_identifiers.py
+core_client/model/node_identifiers.py
+core_client/model/node_identifiers_request.py
+core_client/model/node_identifiers_response.py
+core_client/model/node_sign_request.py
+core_client/model/node_sign_response.py
 core_client/model/not_enough_resources_error.py
 core_client/model/not_validator_owner_error.py
 core_client/model/operation.py
@@ -102,8 +106,6 @@ core_client/model/resource_identifier.py
 core_client/model/resource_withdraw_operation_not_supported_by_entity_error.py
 core_client/model/round_data.py
 core_client/model/rri.py
-core_client/model/sign_request.py
-core_client/model/sign_response.py
 core_client/model/signature.py
 core_client/model/stake_unit_resource_identifier.py
 core_client/model/state_identifier.py
@@ -207,7 +209,12 @@ docs/NetworkIdentifier.md
 docs/NetworkNotSupportedError.md
 docs/NetworkStatusRequest.md
 docs/NetworkStatusResponse.md
-docs/NetworkStatusResponseNodeIdentifiers.md
+docs/NodeApi.md
+docs/NodeIdentifiers.md
+docs/NodeIdentifiersRequest.md
+docs/NodeIdentifiersResponse.md
+docs/NodeSignRequest.md
+docs/NodeSignResponse.md
 docs/NotEnoughResourcesError.md
 docs/NotValidatorOwnerError.md
 docs/Operation.md
@@ -226,9 +233,6 @@ docs/ResourceDepositOperationNotSupportedByEntityError.md
 docs/ResourceIdentifier.md
 docs/ResourceWithdrawOperationNotSupportedByEntityError.md
 docs/RoundData.md
-docs/SignApi.md
-docs/SignRequest.md
-docs/SignResponse.md
 docs/Signature.md
 docs/StakeUnitResourceIdentifier.md
 docs/StateIdentifier.md
@@ -264,4 +268,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_node_api.py
 tox.ini

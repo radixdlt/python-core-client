@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **current_state_epoch** | **int** |  | 
 **current_state_round** | **int** |  | 
 **current_state_timestamp** | **int** |  | 
-**node_identifiers** | [**NetworkStatusResponseNodeIdentifiers**](NetworkStatusResponseNodeIdentifiers.md) |  | 
 **sync_status** | [**SyncStatus**](SyncStatus.md) |  | 
 **peers** | [**[Peer]**](Peer.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

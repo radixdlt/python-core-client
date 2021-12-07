@@ -260,7 +260,8 @@ Class | Method | HTTP request | Description
 *MempoolApi* | [**mempool_transaction_post**](docs/MempoolApi.md#mempool_transaction_post) | **POST** /mempool/transaction | Get Mempool Transaction
 *NetworkApi* | [**network_configuration_post**](docs/NetworkApi.md#network_configuration_post) | **POST** /network/configuration | Get Network Configuration
 *NetworkApi* | [**network_status_post**](docs/NetworkApi.md#network_status_post) | **POST** /network/status | Get Network Status
-*SignApi* | [**sign_post**](docs/SignApi.md#sign_post) | **POST** /sign | Sign a transaction with the node&#39;s key
+*NodeApi* | [**node_identifiers_post**](docs/NodeApi.md#node_identifiers_post) | **POST** /node/identifiers | Get the node&#39;s identifiers
+*NodeApi* | [**node_sign_post**](docs/NodeApi.md#node_sign_post) | **POST** /node/sign | Sign a transaction with the node&#39;s key
 *TransactionsApi* | [**transactions_post**](docs/TransactionsApi.md#transactions_post) | **POST** /transactions | Get Committed Transactions
 
 
@@ -333,7 +334,11 @@ Class | Method | HTTP request | Description
  - [NetworkNotSupportedError](docs/NetworkNotSupportedError.md)
  - [NetworkStatusRequest](docs/NetworkStatusRequest.md)
  - [NetworkStatusResponse](docs/NetworkStatusResponse.md)
- - [NetworkStatusResponseNodeIdentifiers](docs/NetworkStatusResponseNodeIdentifiers.md)
+ - [NodeIdentifiers](docs/NodeIdentifiers.md)
+ - [NodeIdentifiersRequest](docs/NodeIdentifiersRequest.md)
+ - [NodeIdentifiersResponse](docs/NodeIdentifiersResponse.md)
+ - [NodeSignRequest](docs/NodeSignRequest.md)
+ - [NodeSignResponse](docs/NodeSignResponse.md)
  - [NotEnoughResourcesError](docs/NotEnoughResourcesError.md)
  - [NotValidatorOwnerError](docs/NotValidatorOwnerError.md)
  - [Operation](docs/Operation.md)
@@ -352,8 +357,6 @@ Class | Method | HTTP request | Description
  - [ResourceIdentifier](docs/ResourceIdentifier.md)
  - [ResourceWithdrawOperationNotSupportedByEntityError](docs/ResourceWithdrawOperationNotSupportedByEntityError.md)
  - [RoundData](docs/RoundData.md)
- - [SignRequest](docs/SignRequest.md)
- - [SignResponse](docs/SignResponse.md)
  - [Signature](docs/Signature.md)
  - [StakeUnitResourceIdentifier](docs/StakeUnitResourceIdentifier.md)
  - [StateIdentifier](docs/StateIdentifier.md)

@@ -76,7 +76,11 @@ from core_client.model.network_identifier import NetworkIdentifier
 from core_client.model.network_not_supported_error import NetworkNotSupportedError
 from core_client.model.network_status_request import NetworkStatusRequest
 from core_client.model.network_status_response import NetworkStatusResponse
-from core_client.model.network_status_response_node_identifiers import NetworkStatusResponseNodeIdentifiers
+from core_client.model.node_identifiers import NodeIdentifiers
+from core_client.model.node_identifiers_request import NodeIdentifiersRequest
+from core_client.model.node_identifiers_response import NodeIdentifiersResponse
+from core_client.model.node_sign_request import NodeSignRequest
+from core_client.model.node_sign_response import NodeSignResponse
 from core_client.model.not_enough_resources_error import NotEnoughResourcesError
 from core_client.model.not_validator_owner_error import NotValidatorOwnerError
 from core_client.model.operation import Operation
@@ -95,8 +99,6 @@ from core_client.model.resource_deposit_operation_not_supported_by_entity_error 
 from core_client.model.resource_identifier import ResourceIdentifier
 from core_client.model.resource_withdraw_operation_not_supported_by_entity_error import ResourceWithdrawOperationNotSupportedByEntityError
 from core_client.model.round_data import RoundData
-from core_client.model.sign_request import SignRequest
-from core_client.model.sign_response import SignResponse
 from core_client.model.signature import Signature
 from core_client.model.stake_unit_resource_identifier import StakeUnitResourceIdentifier
 from core_client.model.state_identifier import StateIdentifier

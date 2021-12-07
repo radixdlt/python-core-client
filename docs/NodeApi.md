@@ -1,11 +1,11 @@
-# core_client.SignApi
+# core_client.NodeApi
 
 All URIs are relative to *http://localhost:3333*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**node_identifiers_post**](SignApi.md#node_identifiers_post) | **POST** /node/identifiers | Get the node&#39;s identifiers
-[**node_sign_post**](SignApi.md#node_sign_post) | **POST** /node/sign | Sign a transaction with the node&#39;s key
+[**node_identifiers_post**](NodeApi.md#node_identifiers_post) | **POST** /node/identifiers | Get the node&#39;s identifiers
+[**node_sign_post**](NodeApi.md#node_sign_post) | **POST** /node/sign | Sign a transaction with the node&#39;s key
 
 
 # **node_identifiers_post**
@@ -18,7 +18,7 @@ Get the node's identifiers
 ```python
 import time
 import core_client
-from core_client.api import sign_api
+from core_client.api import node_api
 from core_client.model.node_identifiers_request import NodeIdentifiersRequest
 from core_client.model.unexpected_error import UnexpectedError
 from core_client.model.node_identifiers_response import NodeIdentifiersResponse
@@ -33,7 +33,7 @@ configuration = core_client.Configuration(
 # Enter a context with an instance of the API client
 with core_client.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = sign_api.SignApi(api_client)
+    api_instance = node_api.NodeApi(api_client)
     node_identifiers_request = NodeIdentifiersRequest(
         network_identifier=NetworkIdentifier(
             network="network_example",
@@ -46,7 +46,7 @@ with core_client.ApiClient() as api_client:
         api_response = api_instance.node_identifiers_post(node_identifiers_request)
         pprint(api_response)
     except core_client.ApiException as e:
-        print("Exception when calling SignApi->node_identifiers_post: %s\n" % e)
+        print("Exception when calling NodeApi->node_identifiers_post: %s\n" % e)
 ```
 
 
@@ -88,7 +88,7 @@ Sign a transaction with the node's key
 ```python
 import time
 import core_client
-from core_client.api import sign_api
+from core_client.api import node_api
 from core_client.model.node_sign_response import NodeSignResponse
 from core_client.model.unexpected_error import UnexpectedError
 from core_client.model.node_sign_request import NodeSignRequest
@@ -103,7 +103,7 @@ configuration = core_client.Configuration(
 # Enter a context with an instance of the API client
 with core_client.ApiClient() as api_client:
     # Create an instance of the API class
-    api_instance = sign_api.SignApi(api_client)
+    api_instance = node_api.NodeApi(api_client)
     node_sign_request = NodeSignRequest(
         network_identifier=NetworkIdentifier(
             network="network_example",
@@ -120,7 +120,7 @@ with core_client.ApiClient() as api_client:
         api_response = api_instance.node_sign_post(node_sign_request)
         pprint(api_response)
     except core_client.ApiException as e:
-        print("Exception when calling SignApi->node_sign_post: %s\n" % e)
+        print("Exception when calling NodeApi->node_sign_post: %s\n" % e)
 ```
 
 

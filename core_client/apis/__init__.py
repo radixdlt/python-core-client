@@ -19,5 +19,5 @@ from core_client.api.engine_api import EngineApi
 from core_client.api.entity_api import EntityApi
 from core_client.api.mempool_api import MempoolApi
 from core_client.api.network_api import NetworkApi
-from core_client.api.sign_api import SignApi
+from core_client.api.node_api import NodeApi
 from core_client.api.transactions_api import TransactionsApi

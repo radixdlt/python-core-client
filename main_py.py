@@ -5,10 +5,11 @@ import core_client as core_api
 from core_client.api import entity_api
 from core_client.api import construction_api
 from core_client.api import network_api
-from core_client.api import sign_api
+from core_client.api import node_api
 from core_client.model.data import Data
+from core_client.model.node_sign_request import NodeSignRequest
+from core_client.model.node_identifiers_request import NodeIdentifiersRequest
 from core_client.model.entity_request import EntityRequest
-from core_client.model.sign_request import SignRequest
 from core_client.model.sub_entity import SubEntity
 from core_client.model.sub_entity_metadata import SubEntityMetadata
 from core_client.model.prepared_validator_owner import PreparedValidatorOwner
@@ -284,8 +285,8 @@ def submit_action(api_client, actions):
     ))
     unsigned_transaction = build.unsigned_transaction
 
-    api = sign_api.SignApi(api_client)
-    response = api.sign_post(SignRequest(
+    api = node_api.NodeSignApi(api_client)
+    response = api.node_sign_post(SignRequest(
         network_identifier = network_identifier,
         public_key = public_key,
         unsigned_transaction = unsigned_transaction
@@ -301,8 +302,9 @@ def submit_action(api_client, actions):
 def get_node_identifiers(api_client):
     api = network_api.NetworkApi(api_client)
     network_identifier = api.network_configuration_post(dict()).network_identifier
-    status = api.network_status_post(NetworkStatusRequest(network_identifier = network_identifier))
-    return status.node_identifiers
+    api = node_api.NodeApi(api_client)
+    response = api.node_identifiers_post(NodeIdentifiersRequest(network_identifier = network_identifier))
+    return response.node_identifiers
 
 if __name__ == "__main__":
     system_config = system_api.Configuration("http://localhost:3333")
