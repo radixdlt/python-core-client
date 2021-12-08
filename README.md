@@ -256,19 +256,18 @@ Class | Method | HTTP request | Description
 *EngineApi* | [**engine_configuration_post**](docs/EngineApi.md#engine_configuration_post) | **POST** /engine/configuration | Get Engine Configuration
 *EngineApi* | [**engine_status_post**](docs/EngineApi.md#engine_status_post) | **POST** /engine/status | Get Engine Current Status
 *EntityApi* | [**entity_post**](docs/EntityApi.md#entity_post) | **POST** /entity | Get Entity Information
+*KeyApi* | [**key_list_post**](docs/KeyApi.md#key_list_post) | **POST** /key/list | Get the node&#39;s supported public keys
+*KeyApi* | [**key_sign_post**](docs/KeyApi.md#key_sign_post) | **POST** /key/sign | Sign a transaction with the node&#39;s key
 *MempoolApi* | [**mempool_post**](docs/MempoolApi.md#mempool_post) | **POST** /mempool | Get Mempool Transactions
 *MempoolApi* | [**mempool_transaction_post**](docs/MempoolApi.md#mempool_transaction_post) | **POST** /mempool/transaction | Get Mempool Transaction
 *NetworkApi* | [**network_configuration_post**](docs/NetworkApi.md#network_configuration_post) | **POST** /network/configuration | Get Network Configuration
 *NetworkApi* | [**network_status_post**](docs/NetworkApi.md#network_status_post) | **POST** /network/status | Get Network Status
-*NodeApi* | [**node_identifiers_post**](docs/NodeApi.md#node_identifiers_post) | **POST** /node/identifiers | Get the node&#39;s identifiers
-*NodeApi* | [**node_sign_post**](docs/NodeApi.md#node_sign_post) | **POST** /node/sign | Sign a transaction with the node&#39;s key
 *TransactionsApi* | [**transactions_post**](docs/TransactionsApi.md#transactions_post) | **POST** /transactions | Get Committed Transactions
 
 
 ## Documentation For Models
 
  - [AboveMaximumValidatorFeeIncreaseError](docs/AboveMaximumValidatorFeeIncreaseError.md)
- - [AccountAddress](docs/AccountAddress.md)
  - [Bech32HRPs](docs/Bech32HRPs.md)
  - [BelowMinimumStakeError](docs/BelowMinimumStakeError.md)
  - [BigInteger](docs/BigInteger.md)
@@ -280,6 +279,8 @@ Class | Method | HTTP request | Description
  - [ConstructionBuildResponse](docs/ConstructionBuildResponse.md)
  - [ConstructionDeriveRequest](docs/ConstructionDeriveRequest.md)
  - [ConstructionDeriveRequestMetadata](docs/ConstructionDeriveRequestMetadata.md)
+ - [ConstructionDeriveRequestMetadataExitingUnstakes](docs/ConstructionDeriveRequestMetadataExitingUnstakes.md)
+ - [ConstructionDeriveRequestMetadataPreparedStakes](docs/ConstructionDeriveRequestMetadataPreparedStakes.md)
  - [ConstructionDeriveRequestMetadataToken](docs/ConstructionDeriveRequestMetadataToken.md)
  - [ConstructionDeriveResponse](docs/ConstructionDeriveResponse.md)
  - [ConstructionFinalizeRequest](docs/ConstructionFinalizeRequest.md)
@@ -323,6 +324,11 @@ Class | Method | HTTP request | Description
  - [InvalidSubEntityError](docs/InvalidSubEntityError.md)
  - [InvalidTransactionError](docs/InvalidTransactionError.md)
  - [InvalidTransactionHashError](docs/InvalidTransactionHashError.md)
+ - [KeyListRequest](docs/KeyListRequest.md)
+ - [KeyListResponse](docs/KeyListResponse.md)
+ - [KeySignRequest](docs/KeySignRequest.md)
+ - [KeySignResponse](docs/KeySignResponse.md)
+ - [MempoolFullError](docs/MempoolFullError.md)
  - [MempoolRequest](docs/MempoolRequest.md)
  - [MempoolResponse](docs/MempoolResponse.md)
  - [MempoolTransactionRequest](docs/MempoolTransactionRequest.md)
@@ -334,12 +340,8 @@ Class | Method | HTTP request | Description
  - [NetworkNotSupportedError](docs/NetworkNotSupportedError.md)
  - [NetworkStatusRequest](docs/NetworkStatusRequest.md)
  - [NetworkStatusResponse](docs/NetworkStatusResponse.md)
- - [NodeIdentifiers](docs/NodeIdentifiers.md)
- - [NodeIdentifiersRequest](docs/NodeIdentifiersRequest.md)
- - [NodeIdentifiersResponse](docs/NodeIdentifiersResponse.md)
- - [NodeSignRequest](docs/NodeSignRequest.md)
- - [NodeSignResponse](docs/NodeSignResponse.md)
  - [NotEnoughResourcesError](docs/NotEnoughResourcesError.md)
+ - [NotValidatorEntityError](docs/NotValidatorEntityError.md)
  - [NotValidatorOwnerError](docs/NotValidatorOwnerError.md)
  - [Operation](docs/Operation.md)
  - [OperationGroup](docs/OperationGroup.md)
@@ -350,8 +352,9 @@ Class | Method | HTTP request | Description
  - [PreparedValidatorOwner](docs/PreparedValidatorOwner.md)
  - [PreparedValidatorRegistered](docs/PreparedValidatorRegistered.md)
  - [PublicKey](docs/PublicKey.md)
+ - [PublicKeyEntry](docs/PublicKeyEntry.md)
+ - [PublicKeyIdentifiers](docs/PublicKeyIdentifiers.md)
  - [PublicKeyNotSupportedError](docs/PublicKeyNotSupportedError.md)
- - [RRI](docs/RRI.md)
  - [ResourceAmount](docs/ResourceAmount.md)
  - [ResourceDepositOperationNotSupportedByEntityError](docs/ResourceDepositOperationNotSupportedByEntityError.md)
  - [ResourceIdentifier](docs/ResourceIdentifier.md)

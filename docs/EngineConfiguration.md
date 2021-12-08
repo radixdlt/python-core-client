@@ -4,6 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**native_token** | [**TokenResourceIdentifier**](TokenResourceIdentifier.md) |  | 
+**maximum_message_length** | **int** |  | 
 **maximum_validators** | **int** |  | 
 **token_symbol_pattern** | **str** |  | 
 **unstaking_delay_epoch_length** | **int** |  | 

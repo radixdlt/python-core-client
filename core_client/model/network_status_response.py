@@ -94,9 +94,6 @@ class NetworkStatusResponse(ModelNormal):
             'pre_genesis_state_identifier': (StateIdentifier,),  # noqa: E501
             'genesis_state_identifier': (StateIdentifier,),  # noqa: E501
             'current_state_identifier': (StateIdentifier,),  # noqa: E501
-            'current_state_epoch': (int,),  # noqa: E501
-            'current_state_round': (int,),  # noqa: E501
-            'current_state_timestamp': (int,),  # noqa: E501
             'sync_status': (SyncStatus,),  # noqa: E501
             'peers': ([Peer],),  # noqa: E501
         }
@@ -110,9 +107,6 @@ class NetworkStatusResponse(ModelNormal):
         'pre_genesis_state_identifier': 'pre_genesis_state_identifier',  # noqa: E501
         'genesis_state_identifier': 'genesis_state_identifier',  # noqa: E501
         'current_state_identifier': 'current_state_identifier',  # noqa: E501
-        'current_state_epoch': 'current_state_epoch',  # noqa: E501
-        'current_state_round': 'current_state_round',  # noqa: E501
-        'current_state_timestamp': 'current_state_timestamp',  # noqa: E501
         'sync_status': 'sync_status',  # noqa: E501
         'peers': 'peers',  # noqa: E501
     }
@@ -124,16 +118,13 @@ class NetworkStatusResponse(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, pre_genesis_state_identifier, genesis_state_identifier, current_state_identifier, current_state_epoch, current_state_round, current_state_timestamp, sync_status, peers, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, pre_genesis_state_identifier, genesis_state_identifier, current_state_identifier, sync_status, peers, *args, **kwargs):  # noqa: E501
         """NetworkStatusResponse - a model defined in OpenAPI
 
         Args:
             pre_genesis_state_identifier (StateIdentifier):
             genesis_state_identifier (StateIdentifier):
             current_state_identifier (StateIdentifier):
-            current_state_epoch (int):
-            current_state_round (int):
-            current_state_timestamp (int):
             sync_status (SyncStatus):
             peers ([Peer]):
 
@@ -198,9 +189,6 @@ class NetworkStatusResponse(ModelNormal):
         self.pre_genesis_state_identifier = pre_genesis_state_identifier
         self.genesis_state_identifier = genesis_state_identifier
         self.current_state_identifier = current_state_identifier
-        self.current_state_epoch = current_state_epoch
-        self.current_state_round = current_state_round
-        self.current_state_timestamp = current_state_timestamp
         self.sync_status = sync_status
         self.peers = peers
         for var_name, var_value in kwargs.items():
@@ -223,16 +211,13 @@ class NetworkStatusResponse(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, pre_genesis_state_identifier, genesis_state_identifier, current_state_identifier, current_state_epoch, current_state_round, current_state_timestamp, sync_status, peers, *args, **kwargs):  # noqa: E501
+    def __init__(self, pre_genesis_state_identifier, genesis_state_identifier, current_state_identifier, sync_status, peers, *args, **kwargs):  # noqa: E501
         """NetworkStatusResponse - a model defined in OpenAPI
 
         Args:
             pre_genesis_state_identifier (StateIdentifier):
             genesis_state_identifier (StateIdentifier):
             current_state_identifier (StateIdentifier):
-            current_state_epoch (int):
-            current_state_round (int):
-            current_state_timestamp (int):
             sync_status (SyncStatus):
             peers ([Peer]):
 
@@ -295,9 +280,6 @@ class NetworkStatusResponse(ModelNormal):
         self.pre_genesis_state_identifier = pre_genesis_state_identifier
         self.genesis_state_identifier = genesis_state_identifier
         self.current_state_identifier = current_state_identifier
-        self.current_state_epoch = current_state_epoch
-        self.current_state_round = current_state_round
-        self.current_state_timestamp = current_state_timestamp
         self.sync_status = sync_status
         self.peers = peers
         for var_name, var_value in kwargs.items():

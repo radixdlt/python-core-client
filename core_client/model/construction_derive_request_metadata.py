@@ -31,11 +31,19 @@ from core_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from core_client.model.construction_derive_request_metadata_account import ConstructionDeriveRequestMetadataAccount
+    from core_client.model.construction_derive_request_metadata_exiting_unstakes import ConstructionDeriveRequestMetadataExitingUnstakes
+    from core_client.model.construction_derive_request_metadata_prepared_stakes import ConstructionDeriveRequestMetadataPreparedStakes
+    from core_client.model.construction_derive_request_metadata_prepared_unstakes import ConstructionDeriveRequestMetadataPreparedUnstakes
     from core_client.model.construction_derive_request_metadata_token import ConstructionDeriveRequestMetadataToken
     from core_client.model.construction_derive_request_metadata_validator import ConstructionDeriveRequestMetadataValidator
+    from core_client.model.construction_derive_request_metadata_validator_system import ConstructionDeriveRequestMetadataValidatorSystem
     globals()['ConstructionDeriveRequestMetadataAccount'] = ConstructionDeriveRequestMetadataAccount
+    globals()['ConstructionDeriveRequestMetadataExitingUnstakes'] = ConstructionDeriveRequestMetadataExitingUnstakes
+    globals()['ConstructionDeriveRequestMetadataPreparedStakes'] = ConstructionDeriveRequestMetadataPreparedStakes
+    globals()['ConstructionDeriveRequestMetadataPreparedUnstakes'] = ConstructionDeriveRequestMetadataPreparedUnstakes
     globals()['ConstructionDeriveRequestMetadataToken'] = ConstructionDeriveRequestMetadataToken
     globals()['ConstructionDeriveRequestMetadataValidator'] = ConstructionDeriveRequestMetadataValidator
+    globals()['ConstructionDeriveRequestMetadataValidatorSystem'] = ConstructionDeriveRequestMetadataValidatorSystem
 
 
 class ConstructionDeriveRequestMetadata(ModelNormal):
@@ -99,8 +107,12 @@ class ConstructionDeriveRequestMetadata(ModelNormal):
         lazy_import()
         val = {
             'Account': ConstructionDeriveRequestMetadataAccount,
+            'ExitingUnstakes': ConstructionDeriveRequestMetadataExitingUnstakes,
+            'PreparedStakes': ConstructionDeriveRequestMetadataPreparedStakes,
+            'PreparedUnstakes': ConstructionDeriveRequestMetadataPreparedUnstakes,
             'Token': ConstructionDeriveRequestMetadataToken,
             'Validator': ConstructionDeriveRequestMetadataValidator,
+            'ValidatorSystem': ConstructionDeriveRequestMetadataValidatorSystem,
         }
         if not val:
             return None

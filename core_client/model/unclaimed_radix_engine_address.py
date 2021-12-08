@@ -81,7 +81,7 @@ class UnclaimedRadixEngineAddress(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'address': (str,),  # noqa: E501
+            'type': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -90,7 +90,7 @@ class UnclaimedRadixEngineAddress(ModelNormal):
 
 
     attribute_map = {
-        'address': 'address',  # noqa: E501
+        'type': 'type',  # noqa: E501
     }
 
     read_only_vars = {
@@ -134,7 +134,7 @@ class UnclaimedRadixEngineAddress(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            address (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -216,7 +216,7 @@ class UnclaimedRadixEngineAddress(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            address (str): [optional]  # noqa: E501
+            type (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

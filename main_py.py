@@ -5,10 +5,10 @@ import core_client as core_api
 from core_client.api import entity_api
 from core_client.api import construction_api
 from core_client.api import network_api
-from core_client.api import node_api
+from core_client.api import key_api
 from core_client.model.data import Data
-from core_client.model.node_sign_request import NodeSignRequest
-from core_client.model.node_identifiers_request import NodeIdentifiersRequest
+from core_client.model.key_sign_request import KeySignRequest
+from core_client.model.key_list_request import KeyListRequest
 from core_client.model.entity_request import EntityRequest
 from core_client.model.sub_entity import SubEntity
 from core_client.model.sub_entity_metadata import SubEntityMetadata
@@ -24,7 +24,6 @@ from core_client.model.resource_amount import ResourceAmount
 from core_client.model.stake_unit_resource_identifier import StakeUnitResourceIdentifier
 from core_client.model.token_resource_identifier import TokenResourceIdentifier
 from core_client.model.resource_identifier import ResourceIdentifier
-from core_client.model.rri import RRI
 from core_client.model.operation import Operation
 from core_client.model.operation_group import OperationGroup
 from core_client.model.big_integer import BigInteger
@@ -192,7 +191,7 @@ def transfer_tokens(rri, amount, receiver):
                     entity_identifier = node_identifiers.account_entity_identifier,
                     amount = ResourceAmount(
                         BigInteger('-' + amount),
-                        TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                        TokenResourceIdentifier(type = "Token", rri = rri)
                     )
                 ),
                 Operation(
@@ -200,7 +199,7 @@ def transfer_tokens(rri, amount, receiver):
                     entity_identifier = EntityIdentifier(address = receiver),
                     amount = ResourceAmount(
                         BigInteger(amount),
-                        TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                        TokenResourceIdentifier(type = "Token", rri = rri)
                     )
                 )
             ])
@@ -214,7 +213,7 @@ def stake_tokens(rri, amount, validator):
                      entity_identifier = node_identifiers.account_entity_identifier,
                      amount = ResourceAmount(
                          BigInteger('-' + amount),
-                         TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                         TokenResourceIdentifier(type = "Token", rri = rri)
                      )
                  ),
                  Operation(
@@ -230,7 +229,7 @@ def stake_tokens(rri, amount, validator):
                      ),
                      amount = ResourceAmount(
                          BigInteger(amount),
-                         TokenResourceIdentifier(type = "Token", rri = RRI(rri))
+                         TokenResourceIdentifier(type = "Token", rri = rri)
                      )
                  )
              ])
@@ -268,8 +267,9 @@ def submit_action(api_client, actions):
     api = network_api.NetworkApi(api_client)
     network_identifier = api.network_configuration_post(dict()).network_identifier
     node_identifiers = get_node_identifiers(api_client)
-    public_key = node_identifiers.public_key
-    account_entity_identifier = node_identifiers.account_entity_identifier
+    public_key_entry = get_public_key_entry(api_client)
+    public_key = public_key_entry.public_key
+    account_entity_identifier = public_key_entry.identifiers.account_entity_identifier
     api = construction_api.ConstructionApi(api_client)
 
     # flatmap
@@ -285,8 +285,8 @@ def submit_action(api_client, actions):
     ))
     unsigned_transaction = build.unsigned_transaction
 
-    api = node_api.NodeSignApi(api_client)
-    response = api.node_sign_post(SignRequest(
+    api = key.KeySignApi(api_client)
+    response = api.key_sign_post(SignRequest(
         network_identifier = network_identifier,
         public_key = public_key,
         unsigned_transaction = unsigned_transaction
@@ -299,12 +299,19 @@ def submit_action(api_client, actions):
     ))
     return response
 
+def get_public_key_entry(api_client):
+    api = network_api.NetworkApi(api_client)
+    network_identifier = api.network_configuration_post(dict()).network_identifier
+    api = key_api.KeyApi(api_client)
+    response = api.key_list_post(KeyListRequest(network_identifier = network_identifier))
+    return response.public_keys[0]
+
 def get_node_identifiers(api_client):
     api = network_api.NetworkApi(api_client)
     network_identifier = api.network_configuration_post(dict()).network_identifier
-    api = node_api.NodeApi(api_client)
-    response = api.node_identifiers_post(NodeIdentifiersRequest(network_identifier = network_identifier))
-    return response.node_identifiers
+    api = key_api.KeyApi(api_client)
+    response = api.key_list_post(KeyListRequest(network_identifier = network_identifier))
+    return response.public_keys[0].identifiers
 
 if __name__ == "__main__":
     system_config = system_api.Configuration("http://localhost:3333")
@@ -315,7 +322,6 @@ if __name__ == "__main__":
 
     config = core_api.Configuration("http://localhost:3333")
     with core_api.ApiClient(config) as api_client:
-        print(get_node_identifiers(api_client))
         actions = [
             set_validator_metadata('Validator', 'https://www.google.com'),
             set_validator_registered(True)

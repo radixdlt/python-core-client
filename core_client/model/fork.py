@@ -114,12 +114,13 @@ class Fork(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, fork_identifier, engine_identifier, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, fork_identifier, engine_identifier, engine_configuration, *args, **kwargs):  # noqa: E501
         """Fork - a model defined in OpenAPI
 
         Args:
             fork_identifier (ForkIdentifier):
             engine_identifier (EngineIdentifier):
+            engine_configuration (EngineConfiguration):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -152,7 +153,6 @@ class Fork(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            engine_configuration (EngineConfiguration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -182,6 +182,7 @@ class Fork(ModelNormal):
 
         self.fork_identifier = fork_identifier
         self.engine_identifier = engine_identifier
+        self.engine_configuration = engine_configuration
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -202,12 +203,13 @@ class Fork(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, fork_identifier, engine_identifier, *args, **kwargs):  # noqa: E501
+    def __init__(self, fork_identifier, engine_identifier, engine_configuration, *args, **kwargs):  # noqa: E501
         """Fork - a model defined in OpenAPI
 
         Args:
             fork_identifier (ForkIdentifier):
             engine_identifier (EngineIdentifier):
+            engine_configuration (EngineConfiguration):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -240,7 +242,6 @@ class Fork(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            engine_configuration (EngineConfiguration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -268,6 +269,7 @@ class Fork(ModelNormal):
 
         self.fork_identifier = fork_identifier
         self.engine_identifier = engine_identifier
+        self.engine_configuration = engine_configuration
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

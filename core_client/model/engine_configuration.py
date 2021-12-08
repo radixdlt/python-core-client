@@ -32,8 +32,10 @@ from core_client.exceptions import ApiAttributeError
 def lazy_import():
     from core_client.model.fee_table import FeeTable
     from core_client.model.resource_amount import ResourceAmount
+    from core_client.model.token_resource_identifier import TokenResourceIdentifier
     globals()['FeeTable'] = FeeTable
     globals()['ResourceAmount'] = ResourceAmount
+    globals()['TokenResourceIdentifier'] = TokenResourceIdentifier
 
 
 class EngineConfiguration(ModelNormal):
@@ -89,6 +91,8 @@ class EngineConfiguration(ModelNormal):
         """
         lazy_import()
         return {
+            'native_token': (TokenResourceIdentifier,),  # noqa: E501
+            'maximum_message_length': (int,),  # noqa: E501
             'maximum_validators': (int,),  # noqa: E501
             'token_symbol_pattern': (str,),  # noqa: E501
             'unstaking_delay_epoch_length': (int,),  # noqa: E501
@@ -110,6 +114,8 @@ class EngineConfiguration(ModelNormal):
 
 
     attribute_map = {
+        'native_token': 'native_token',  # noqa: E501
+        'maximum_message_length': 'maximum_message_length',  # noqa: E501
         'maximum_validators': 'maximum_validators',  # noqa: E501
         'token_symbol_pattern': 'token_symbol_pattern',  # noqa: E501
         'unstaking_delay_epoch_length': 'unstaking_delay_epoch_length',  # noqa: E501
@@ -132,10 +138,12 @@ class EngineConfiguration(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, maximum_validators, token_symbol_pattern, unstaking_delay_epoch_length, minimum_completed_proposals_percentage, maximum_transaction_size, maximum_transactions_per_round, validator_fee_increase_debouncer_epoch_length, maximum_rounds_per_epoch, maximum_validator_fee_increase, minimum_stake, rewards_per_proposal, reserved_symbols, fee_table, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, native_token, maximum_message_length, maximum_validators, token_symbol_pattern, unstaking_delay_epoch_length, minimum_completed_proposals_percentage, maximum_transaction_size, maximum_transactions_per_round, validator_fee_increase_debouncer_epoch_length, maximum_rounds_per_epoch, maximum_validator_fee_increase, minimum_stake, rewards_per_proposal, reserved_symbols, fee_table, *args, **kwargs):  # noqa: E501
         """EngineConfiguration - a model defined in OpenAPI
 
         Args:
+            native_token (TokenResourceIdentifier):
+            maximum_message_length (int):
             maximum_validators (int):
             token_symbol_pattern (str):
             unstaking_delay_epoch_length (int):
@@ -208,6 +216,8 @@ class EngineConfiguration(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.native_token = native_token
+        self.maximum_message_length = maximum_message_length
         self.maximum_validators = maximum_validators
         self.token_symbol_pattern = token_symbol_pattern
         self.unstaking_delay_epoch_length = unstaking_delay_epoch_length
@@ -241,10 +251,12 @@ class EngineConfiguration(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, maximum_validators, token_symbol_pattern, unstaking_delay_epoch_length, minimum_completed_proposals_percentage, maximum_transaction_size, maximum_transactions_per_round, validator_fee_increase_debouncer_epoch_length, maximum_rounds_per_epoch, maximum_validator_fee_increase, minimum_stake, rewards_per_proposal, reserved_symbols, fee_table, *args, **kwargs):  # noqa: E501
+    def __init__(self, native_token, maximum_message_length, maximum_validators, token_symbol_pattern, unstaking_delay_epoch_length, minimum_completed_proposals_percentage, maximum_transaction_size, maximum_transactions_per_round, validator_fee_increase_debouncer_epoch_length, maximum_rounds_per_epoch, maximum_validator_fee_increase, minimum_stake, rewards_per_proposal, reserved_symbols, fee_table, *args, **kwargs):  # noqa: E501
         """EngineConfiguration - a model defined in OpenAPI
 
         Args:
+            native_token (TokenResourceIdentifier):
+            maximum_message_length (int):
             maximum_validators (int):
             token_symbol_pattern (str):
             unstaking_delay_epoch_length (int):
@@ -315,6 +327,8 @@ class EngineConfiguration(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.native_token = native_token
+        self.maximum_message_length = maximum_message_length
         self.maximum_validators = maximum_validators
         self.token_symbol_pattern = token_symbol_pattern
         self.unstaking_delay_epoch_length = unstaking_delay_epoch_length
