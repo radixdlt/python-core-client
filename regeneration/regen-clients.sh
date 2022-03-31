@@ -10,7 +10,16 @@ cd "$SCRIPT_DIR"
 
 java -jar ./openapi-generator-cli-5.2.1.jar \
     generate \
+    -i "./system-api-openapi.yaml" \
+    -g python \
+    -o "../" \
+    --additional-properties=packageName=system_client \
+    -t "./5.2.1-template-file-overrides"
+
+java -jar ./openapi-generator-cli-5.2.1.jar \
+    generate \
     -i "./core-api-openapi.yaml" \
     -g python \
     -o "../" \
-    -c "./config-custom.yaml"
+    --additional-properties=packageName=core_client \
+    -t "./5.2.1-template-file-overrides"
