@@ -4,14 +4,14 @@ All URIs are relative to *http://localhost:3333*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**key_list_post**](KeyApi.md#key_list_post) | **POST** /key/list | Get the node&#39;s supported public keys
-[**key_sign_post**](KeyApi.md#key_sign_post) | **POST** /key/sign | Sign a transaction with the node&#39;s key
+[**key_list_post**](KeyApi.md#key_list_post) | **POST** /key/list | Get public keys
+[**key_sign_post**](KeyApi.md#key_sign_post) | **POST** /key/sign | Sign transaction
 
 
 # **key_list_post**
 > KeyListResponse key_list_post(key_list_request)
 
-Get the node's supported public keys
+Get public keys
 
 ### Example
 
@@ -42,7 +42,7 @@ with core_client.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get the node's supported public keys
+        # Get public keys
         api_response = api_instance.key_list_post(key_list_request)
         pprint(api_response)
     except core_client.ApiException as e:
@@ -81,7 +81,7 @@ No authorization required
 # **key_sign_post**
 > KeySignResponse key_sign_post(key_sign_request)
 
-Sign a transaction with the node's key
+Sign transaction
 
 ### Example
 
@@ -116,7 +116,7 @@ with core_client.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Sign a transaction with the node's key
+        # Sign transaction
         api_response = api_instance.key_sign_post(key_sign_request)
         pprint(api_response)
     except core_client.ApiException as e:

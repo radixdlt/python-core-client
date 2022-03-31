@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **network_identifier** | [**NetworkIdentifier**](NetworkIdentifier.md) |  | 
-**unsigned_transaction** | **str** |  | 
+**unsigned_transaction** | **str** | Byte array of the unsigned transaction encoded in hex. | 
 **public_key** | [**PublicKey**](PublicKey.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
