@@ -1,0 +1,3 @@
+templateDir: "./5.2.1-template-file-overrides"
+additionalProperties:
+  packageName: core_client
