@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **symbol** | **str** | The symbol of the token (not unique in the system). | 
+**type** | **str** | The type of the data object. Each address may own up to one current object of a given type. | 
 **name** | **str** | The name of the token. | [optional] 
 **description** | **str** | Description describing the token. | [optional] 
 **url** | **str** | A url which points to more information about the token. | [optional] 

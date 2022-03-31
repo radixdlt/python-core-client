@@ -4,7 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**fork_identifier** | [**ForkIdentifier**](ForkIdentifier.md) |  | 
+**name** | **str** |  | 
+**is_candidate** | **bool** |  | 
 **engine_identifier** | [**EngineIdentifier**](EngineIdentifier.md) |  | 
 **engine_configuration** | [**EngineConfiguration**](EngineConfiguration.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

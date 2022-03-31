@@ -1,112 +1,20 @@
-# core-client
-This API provides endpoints for Radix network integrators.
+# Radix Core / System API - Python Clients and Models
 
-# Overview
-
-> WARNING
->
-> The Core API is __NOT__ intended to be available on the public web. It is
-> mainly designed to be accessed in a private network for integration use.
-
-Welcome to the Radix Core API version 0.9.0 for Integrators. Version 0.9.0
-is intended for integrators who wish to begin the process of developing an
-integration between the Radix ledger and their own systems.
-
-The Core API is separated into two:
-* The **Data API** is a read-only api which allows integrators to view and
-sync to the state of the ledger.
-* The **Construction API** allows integrators to construct and submit a
-transaction to the network on behalf of a key holder.
-
-The Core API is primarily designed for network integrations such as exchanges,
-ledger analytics providers, or hosted ledger data dashboards where detailed
-ledger data is required and the integrator can be expected to run their node
-to provide the Core API for their own consumption.
-
-The Core API is not a full replacement for the current Node and Archive
-[APIs](https://docs.radixdlt.com). We are also working on a public-facing
-Gateway API that will be part of a full \"new API\", but is yet to be finalised.
-
-We should stress that this API is in preview, and should __not__ be deployed
-into production until version 1.0.0 has been finalised in an official Radix node
-release.
-
-## Backwards Compatibility
-
-The OpenAPI specification of all endpoints in Version 0.9.0 is intended to be
-backwards compatible with version 1.0.0 once released, so that there is little
-risk that clients working with this spec will break after the release of 1.0.0.
-Additional endpoints (such as retrieving mempool contents) are planned to be added.
-
-## Rosetta
-
-The Data API and Construction API is inspired from [Rosetta API](https://www.rosetta-api.org/)
-most notably:
-  * Use of a JSON-Based RPC protocol on top of HTTP Post requests
-  * Use of Operations, Amounts, and Identifiers as universal language to
-  express asset movement for reading and writing
-
-There are a few notable exceptions to note:
-  * Fetching of ledger data is through a Transaction stream rather than a
-  Block stream
-  * Use of `EntityIdentifier` rather than `AccountIdentifier`
-  * Use of `OperationGroup` rather than `related_operations` to express related
-  operations
-  * Construction endpoints perform coin selection on behalf of the caller.
-  This has the unfortunate effect of not being able to support high frequency
-  transactions from a single account. This will be addressed in future updates.
-  * Construction endpoints are online rather than offline as required by Rosetta
-
-Future versions of the api will aim towards a fully-compliant Rosetta API.
-
-## Client Reference Implementation
-
-> IMPORTANT
->
-> The Network Gateway service is subject to substantial change before official release in v1.
-
-We are currently working on a client reference implementation to the Core API, which we are happy to share
-with you for reference, as a demonstration of how to interpret responses from the Core API:
-
-* [Latest - more functionality, no guarantees of correctness](https://github.com/radixdlt/radixdlt-network-gateway/)
-* [Stable - old code, ingesting balance and transfer data, manually tested against stokenet](https://github.com/radixdlt/radixdlt-network-gateway/tree/v0.1_BalanceSubstatesAndHistory)
-
-As a starter, check out the folder `./src/DataAggregator/LedgerExtension` for understanding how to parse
-the contents of the transaction stream.
-
-## Client Code Generation
-
-We have found success with generating clients against the [api.yaml specification](https://raw.githubusercontent.com/radixdlt/radixdlt/feature/open-api/radixdlt-core/radixdlt/src/main/java/com/radixdlt/api/core/api.yaml)
-in the core folder. See https://openapi-generator.tech/ for more details.
-
-The OpenAPI generator only supports openapi version 3.0.0 at present, but you can
-change 3.1.0 to 3.0.0 in the first line of the spec without affecting generation.
-
-# Data API Flow
-
-Integrators can make use of the Data API to synchronize a full or partial view of
-the ledger, transaction by transaction.
-
-![Data API Flow](https://raw.githubusercontent.com/radixdlt/radixdlt/feature/open-api/radixdlt-core/radixdlt/src/main/java/com/radixdlt/api/core/documentation/data_sequence_flow.png)
-
-# Construction API Flow
-
-Integrators can make use of the Construction API to construct and submit transactions
-to the network.
-
-![Construction API Flow](https://raw.githubusercontent.com/radixdlt/radixdlt/feature/open-api/radixdlt-core/radixdlt/src/main/java/com/radixdlt/api/core/documentation/construction_sequence_flow.png)
-
-Unlike the Rosetta Construction API [specification](https://www.rosetta-api.org/docs/construction_api_introduction.html),
-this Construction API selects UTXOs on behalf of the caller. This has the unfortunate
-side effect of not being able to support high frequency transactions from a single
-account due to UTXO conflicts. This will be addressed in a future release.
-
-
-This Python package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
-
-- API version: 0.9.0
+- Core API version: 1.0.0
 - Package version: 1.0.0
-- Build package: org.openapitools.codegen.languages.PythonClientCodegen
+
+This Core/System API client is generated from the Core/System API spec using an Open API Generator. However, the current python generator is rather buggy,
+so we've had to customise the generation with templates to get a working client.
+
+For more information on this, or to regenerate, check out the [regeneration](./regeneration) folder.
+
+Both of the API clients are generated over the top of each other, so
+
+## API Docs
+
+See [the API specifications](https://docs.radixdlt.com/main/apis/api-specification.html) on the Radix docs site.
+
+# Open API Autogen'd Docs (from Core API generation)
 
 ## Requirements.
 
@@ -203,15 +111,11 @@ with core_client.ApiClient(configuration) as api_client:
                         ),
                         amount=ResourceAmount(
                             value=BigInteger("-80728"),
-                            resource_identifier=ResourceIdentifier(
-                                type="type_example",
-                            ),
+                            resource_identifier=ResourceIdentifier(),
                         ),
                         data=Data(
                             action="CREATE",
-                            data_object=DataObject(
-                                type="type_example",
-                            ),
+                            data_object=DataObject(),
                         ),
                         metadata={},
                     ),
@@ -256,8 +160,8 @@ Class | Method | HTTP request | Description
 *EngineApi* | [**engine_configuration_post**](docs/EngineApi.md#engine_configuration_post) | **POST** /engine/configuration | Get Engine Configuration
 *EngineApi* | [**engine_status_post**](docs/EngineApi.md#engine_status_post) | **POST** /engine/status | Get Engine Current Status
 *EntityApi* | [**entity_post**](docs/EntityApi.md#entity_post) | **POST** /entity | Get Entity Information
-*KeyApi* | [**key_list_post**](docs/KeyApi.md#key_list_post) | **POST** /key/list | Get the node&#39;s supported public keys
-*KeyApi* | [**key_sign_post**](docs/KeyApi.md#key_sign_post) | **POST** /key/sign | Sign a transaction with the node&#39;s key
+*KeyApi* | [**key_list_post**](docs/KeyApi.md#key_list_post) | **POST** /key/list | Get public keys
+*KeyApi* | [**key_sign_post**](docs/KeyApi.md#key_sign_post) | **POST** /key/sign | Sign transaction
 *MempoolApi* | [**mempool_post**](docs/MempoolApi.md#mempool_post) | **POST** /mempool | Get Mempool Transactions
 *MempoolApi* | [**mempool_transaction_post**](docs/MempoolApi.md#mempool_transaction_post) | **POST** /mempool/transaction | Get Mempool Transaction
 *NetworkApi* | [**network_configuration_post**](docs/NetworkApi.md#network_configuration_post) | **POST** /network/configuration | Get Network Configuration
@@ -268,8 +172,10 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AboveMaximumValidatorFeeIncreaseError](docs/AboveMaximumValidatorFeeIncreaseError.md)
+ - [AboveMaximumValidatorFeeIncreaseErrorAllOf](docs/AboveMaximumValidatorFeeIncreaseErrorAllOf.md)
  - [Bech32HRPs](docs/Bech32HRPs.md)
  - [BelowMinimumStakeError](docs/BelowMinimumStakeError.md)
+ - [BelowMinimumStakeErrorAllOf](docs/BelowMinimumStakeErrorAllOf.md)
  - [BigInteger](docs/BigInteger.md)
  - [CommittedTransaction](docs/CommittedTransaction.md)
  - [CommittedTransactionMetadata](docs/CommittedTransactionMetadata.md)
@@ -279,9 +185,16 @@ Class | Method | HTTP request | Description
  - [ConstructionBuildResponse](docs/ConstructionBuildResponse.md)
  - [ConstructionDeriveRequest](docs/ConstructionDeriveRequest.md)
  - [ConstructionDeriveRequestMetadata](docs/ConstructionDeriveRequestMetadata.md)
+ - [ConstructionDeriveRequestMetadataAccount](docs/ConstructionDeriveRequestMetadataAccount.md)
  - [ConstructionDeriveRequestMetadataExitingUnstakes](docs/ConstructionDeriveRequestMetadataExitingUnstakes.md)
+ - [ConstructionDeriveRequestMetadataExitingUnstakesAllOf](docs/ConstructionDeriveRequestMetadataExitingUnstakesAllOf.md)
  - [ConstructionDeriveRequestMetadataPreparedStakes](docs/ConstructionDeriveRequestMetadataPreparedStakes.md)
+ - [ConstructionDeriveRequestMetadataPreparedStakesAllOf](docs/ConstructionDeriveRequestMetadataPreparedStakesAllOf.md)
+ - [ConstructionDeriveRequestMetadataPreparedUnstakes](docs/ConstructionDeriveRequestMetadataPreparedUnstakes.md)
  - [ConstructionDeriveRequestMetadataToken](docs/ConstructionDeriveRequestMetadataToken.md)
+ - [ConstructionDeriveRequestMetadataTokenAllOf](docs/ConstructionDeriveRequestMetadataTokenAllOf.md)
+ - [ConstructionDeriveRequestMetadataValidator](docs/ConstructionDeriveRequestMetadataValidator.md)
+ - [ConstructionDeriveRequestMetadataValidatorSystem](docs/ConstructionDeriveRequestMetadataValidatorSystem.md)
  - [ConstructionDeriveResponse](docs/ConstructionDeriveResponse.md)
  - [ConstructionFinalizeRequest](docs/ConstructionFinalizeRequest.md)
  - [ConstructionFinalizeResponse](docs/ConstructionFinalizeResponse.md)
@@ -295,6 +208,7 @@ Class | Method | HTTP request | Description
  - [Data](docs/Data.md)
  - [DataObject](docs/DataObject.md)
  - [DataObjectNotSupportedByEntityError](docs/DataObjectNotSupportedByEntityError.md)
+ - [DataObjectNotSupportedByEntityErrorAllOf](docs/DataObjectNotSupportedByEntityErrorAllOf.md)
  - [EngineCheckpoint](docs/EngineCheckpoint.md)
  - [EngineConfiguration](docs/EngineConfiguration.md)
  - [EngineConfigurationRequest](docs/EngineConfigurationRequest.md)
@@ -308,86 +222,127 @@ Class | Method | HTTP request | Description
  - [EntityResponse](docs/EntityResponse.md)
  - [EntitySetIdentifier](docs/EntitySetIdentifier.md)
  - [EpochData](docs/EpochData.md)
+ - [EpochDataAllOf](docs/EpochDataAllOf.md)
  - [FeeConstructionError](docs/FeeConstructionError.md)
+ - [FeeConstructionErrorAllOf](docs/FeeConstructionErrorAllOf.md)
  - [FeeTable](docs/FeeTable.md)
  - [Fork](docs/Fork.md)
- - [ForkIdentifier](docs/ForkIdentifier.md)
  - [InternalServerError](docs/InternalServerError.md)
+ - [InternalServerErrorAllOf](docs/InternalServerErrorAllOf.md)
  - [InvalidAddressError](docs/InvalidAddressError.md)
+ - [InvalidAddressErrorAllOf](docs/InvalidAddressErrorAllOf.md)
  - [InvalidDataObjectError](docs/InvalidDataObjectError.md)
+ - [InvalidDataObjectErrorAllOf](docs/InvalidDataObjectErrorAllOf.md)
  - [InvalidFeePayerEntityError](docs/InvalidFeePayerEntityError.md)
+ - [InvalidFeePayerEntityErrorAllOf](docs/InvalidFeePayerEntityErrorAllOf.md)
  - [InvalidHexError](docs/InvalidHexError.md)
+ - [InvalidHexErrorAllOf](docs/InvalidHexErrorAllOf.md)
  - [InvalidJsonError](docs/InvalidJsonError.md)
+ - [InvalidJsonErrorAllOf](docs/InvalidJsonErrorAllOf.md)
  - [InvalidPartialStateIdentifierError](docs/InvalidPartialStateIdentifierError.md)
+ - [InvalidPartialStateIdentifierErrorAllOf](docs/InvalidPartialStateIdentifierErrorAllOf.md)
  - [InvalidPublicKeyError](docs/InvalidPublicKeyError.md)
+ - [InvalidPublicKeyErrorAllOf](docs/InvalidPublicKeyErrorAllOf.md)
  - [InvalidSignatureError](docs/InvalidSignatureError.md)
+ - [InvalidSignatureErrorAllOf](docs/InvalidSignatureErrorAllOf.md)
  - [InvalidSubEntityError](docs/InvalidSubEntityError.md)
+ - [InvalidSubEntityErrorAllOf](docs/InvalidSubEntityErrorAllOf.md)
  - [InvalidTransactionError](docs/InvalidTransactionError.md)
+ - [InvalidTransactionErrorAllOf](docs/InvalidTransactionErrorAllOf.md)
  - [InvalidTransactionHashError](docs/InvalidTransactionHashError.md)
+ - [InvalidTransactionHashErrorAllOf](docs/InvalidTransactionHashErrorAllOf.md)
  - [KeyListRequest](docs/KeyListRequest.md)
  - [KeyListResponse](docs/KeyListResponse.md)
  - [KeySignRequest](docs/KeySignRequest.md)
  - [KeySignResponse](docs/KeySignResponse.md)
  - [MempoolFullError](docs/MempoolFullError.md)
+ - [MempoolFullErrorAllOf](docs/MempoolFullErrorAllOf.md)
  - [MempoolRequest](docs/MempoolRequest.md)
  - [MempoolResponse](docs/MempoolResponse.md)
  - [MempoolTransactionRequest](docs/MempoolTransactionRequest.md)
  - [MempoolTransactionResponse](docs/MempoolTransactionResponse.md)
  - [MessageTooLongError](docs/MessageTooLongError.md)
+ - [MessageTooLongErrorAllOf](docs/MessageTooLongErrorAllOf.md)
  - [NetworkConfigurationResponse](docs/NetworkConfigurationResponse.md)
  - [NetworkConfigurationResponseVersion](docs/NetworkConfigurationResponseVersion.md)
  - [NetworkIdentifier](docs/NetworkIdentifier.md)
  - [NetworkNotSupportedError](docs/NetworkNotSupportedError.md)
+ - [NetworkNotSupportedErrorAllOf](docs/NetworkNotSupportedErrorAllOf.md)
  - [NetworkStatusRequest](docs/NetworkStatusRequest.md)
  - [NetworkStatusResponse](docs/NetworkStatusResponse.md)
+ - [NotEnoughNativeTokensForFeesError](docs/NotEnoughNativeTokensForFeesError.md)
+ - [NotEnoughNativeTokensForFeesErrorAllOf](docs/NotEnoughNativeTokensForFeesErrorAllOf.md)
  - [NotEnoughResourcesError](docs/NotEnoughResourcesError.md)
+ - [NotEnoughResourcesErrorAllOf](docs/NotEnoughResourcesErrorAllOf.md)
  - [NotValidatorEntityError](docs/NotValidatorEntityError.md)
+ - [NotValidatorEntityErrorAllOf](docs/NotValidatorEntityErrorAllOf.md)
  - [NotValidatorOwnerError](docs/NotValidatorOwnerError.md)
+ - [NotValidatorOwnerErrorAllOf](docs/NotValidatorOwnerErrorAllOf.md)
  - [Operation](docs/Operation.md)
  - [OperationGroup](docs/OperationGroup.md)
  - [ParsedTransactionMetadata](docs/ParsedTransactionMetadata.md)
  - [PartialStateIdentifier](docs/PartialStateIdentifier.md)
  - [Peer](docs/Peer.md)
  - [PreparedValidatorFee](docs/PreparedValidatorFee.md)
+ - [PreparedValidatorFeeAllOf](docs/PreparedValidatorFeeAllOf.md)
  - [PreparedValidatorOwner](docs/PreparedValidatorOwner.md)
+ - [PreparedValidatorOwnerAllOf](docs/PreparedValidatorOwnerAllOf.md)
  - [PreparedValidatorRegistered](docs/PreparedValidatorRegistered.md)
+ - [PreparedValidatorRegisteredAllOf](docs/PreparedValidatorRegisteredAllOf.md)
  - [PublicKey](docs/PublicKey.md)
  - [PublicKeyEntry](docs/PublicKeyEntry.md)
  - [PublicKeyIdentifiers](docs/PublicKeyIdentifiers.md)
  - [PublicKeyNotSupportedError](docs/PublicKeyNotSupportedError.md)
+ - [PublicKeyNotSupportedErrorAllOf](docs/PublicKeyNotSupportedErrorAllOf.md)
  - [ResourceAmount](docs/ResourceAmount.md)
  - [ResourceDepositOperationNotSupportedByEntityError](docs/ResourceDepositOperationNotSupportedByEntityError.md)
+ - [ResourceDepositOperationNotSupportedByEntityErrorAllOf](docs/ResourceDepositOperationNotSupportedByEntityErrorAllOf.md)
  - [ResourceIdentifier](docs/ResourceIdentifier.md)
  - [ResourceWithdrawOperationNotSupportedByEntityError](docs/ResourceWithdrawOperationNotSupportedByEntityError.md)
+ - [ResourceWithdrawOperationNotSupportedByEntityErrorAllOf](docs/ResourceWithdrawOperationNotSupportedByEntityErrorAllOf.md)
  - [RoundData](docs/RoundData.md)
+ - [RoundDataAllOf](docs/RoundDataAllOf.md)
  - [Signature](docs/Signature.md)
  - [StakeUnitResourceIdentifier](docs/StakeUnitResourceIdentifier.md)
+ - [StakeUnitResourceIdentifierAllOf](docs/StakeUnitResourceIdentifierAllOf.md)
  - [StateIdentifier](docs/StateIdentifier.md)
  - [StateIdentifierNotFoundError](docs/StateIdentifierNotFoundError.md)
+ - [StateIdentifierNotFoundErrorAllOf](docs/StateIdentifierNotFoundErrorAllOf.md)
  - [SubEntity](docs/SubEntity.md)
  - [SubEntityMetadata](docs/SubEntityMetadata.md)
  - [Substate](docs/Substate.md)
  - [SubstateDependencyNotFoundError](docs/SubstateDependencyNotFoundError.md)
+ - [SubstateDependencyNotFoundErrorAllOf](docs/SubstateDependencyNotFoundErrorAllOf.md)
  - [SubstateIdentifier](docs/SubstateIdentifier.md)
  - [SubstateTypeIdentifier](docs/SubstateTypeIdentifier.md)
  - [SyncStatus](docs/SyncStatus.md)
  - [TokenData](docs/TokenData.md)
+ - [TokenDataAllOf](docs/TokenDataAllOf.md)
  - [TokenMetadata](docs/TokenMetadata.md)
+ - [TokenMetadataAllOf](docs/TokenMetadataAllOf.md)
  - [TokenResourceIdentifier](docs/TokenResourceIdentifier.md)
+ - [TokenResourceIdentifierAllOf](docs/TokenResourceIdentifierAllOf.md)
  - [Transaction](docs/Transaction.md)
  - [TransactionIdentifier](docs/TransactionIdentifier.md)
  - [TransactionIdentifierHash](docs/TransactionIdentifierHash.md)
  - [TransactionNotFoundError](docs/TransactionNotFoundError.md)
+ - [TransactionNotFoundErrorAllOf](docs/TransactionNotFoundErrorAllOf.md)
  - [UnclaimedRadixEngineAddress](docs/UnclaimedRadixEngineAddress.md)
  - [UnexpectedError](docs/UnexpectedError.md)
  - [UpSubstateFeeEntry](docs/UpSubstateFeeEntry.md)
  - [Validator](docs/Validator.md)
  - [ValidatorAllowDelegation](docs/ValidatorAllowDelegation.md)
+ - [ValidatorAllowDelegationAllOf](docs/ValidatorAllowDelegationAllOf.md)
  - [ValidatorBFTData](docs/ValidatorBFTData.md)
+ - [ValidatorBFTDataAllOf](docs/ValidatorBFTDataAllOf.md)
  - [ValidatorData](docs/ValidatorData.md)
+ - [ValidatorDataAllOf](docs/ValidatorDataAllOf.md)
  - [ValidatorMetadata](docs/ValidatorMetadata.md)
+ - [ValidatorMetadataAllOf](docs/ValidatorMetadataAllOf.md)
  - [ValidatorSystemMetadata](docs/ValidatorSystemMetadata.md)
+ - [ValidatorSystemMetadataAllOf](docs/ValidatorSystemMetadataAllOf.md)
  - [VirtualParentData](docs/VirtualParentData.md)
+ - [VirtualParentDataAllOf](docs/VirtualParentDataAllOf.md)
 
 
 ## Documentation For Authorization

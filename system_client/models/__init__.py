@@ -16,7 +16,10 @@ from system_client.model.bft_metrics import BFTMetrics
 from system_client.model.bft_pacemaker_metrics import BFTPacemakerMetrics
 from system_client.model.bft_sync_metrics import BFTSyncMetrics
 from system_client.model.bft_vertex_store_metrics import BFTVertexStoreMetrics
+from system_client.model.error import Error
+from system_client.model.executed_fork import ExecutedFork
 from system_client.model.health_response import HealthResponse
+from system_client.model.health_response_unknown_reported_forks import HealthResponseUnknownReportedForks
 from system_client.model.mempool_configuration import MempoolConfiguration
 from system_client.model.mempool_metrics import MempoolMetrics
 from system_client.model.networking_configuration import NetworkingConfiguration

@@ -1,0 +1,57 @@
+{{! RADIX-MODIFICATION - Improve Docs so they apply to both Core and System APIs, and provide more guidance }}
+# Radix Core / System API - Python Clients and Models
+
+- Core API version: {{appVersion}}
+- Package version: {{packageVersion}}
+
+This Core/System API client is generated from the Core/System API spec using an Open API Generator. However, the current python generator is rather buggy,
+so we've had to customise the generation with templates to get a working client.
+
+For more information on this, or to regenerate, check out the [regeneration](./regeneration) folder.
+
+Both of the API clients are generated over the top of each other, so
+
+## API Docs
+
+See [the API specifications](https://docs.radixdlt.com/main/apis/api-specification.html) on the Radix docs site.
+
+# Open API Autogen'd Docs (from Core API generation)
+
+## Requirements.
+
+Python >= 3.6
+
+## Installation & Usage
+### pip install
+
+If the python package is hosted on a repository, you can install directly using:
+
+```sh
+pip install git+https://{{gitHost}}/{{{gitUserId}}}/{{{gitRepoId}}}.git
+```
+(you may need to run `pip` with root permission: `sudo pip install git+https://{{gitHost}}/{{{gitUserId}}}/{{{gitRepoId}}}.git`)
+
+Then import the package:
+```python
+import {{{packageName}}}
+```
+
+### Setuptools
+
+Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
+
+```sh
+python setup.py install --user
+```
+(or `sudo python setup.py install` to install the package for all users)
+
+Then import the package:
+```python
+import {{{packageName}}}
+```
+
+## Getting Started
+
+Please follow the [installation procedure](#installation--usage) and then run the following:
+
+{{> README_common }}

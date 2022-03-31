@@ -65,15 +65,11 @@ with core_client.ApiClient() as api_client:
                         ),
                         amount=ResourceAmount(
                             value=BigInteger("-80728"),
-                            resource_identifier=ResourceIdentifier(
-                                type="type_example",
-                            ),
+                            resource_identifier=ResourceIdentifier(),
                         ),
                         data=Data(
                             action="CREATE",
-                            data_object=DataObject(
-                                type="type_example",
-                            ),
+                            data_object=DataObject(),
                         ),
                         metadata={},
                     ),
@@ -167,9 +163,7 @@ with core_client.ApiClient() as api_client:
         public_key=PublicKey(
             hex="hex_example",
         ),
-        metadata=ConstructionDeriveRequestMetadata(
-            type="type_example",
-        ),
+        metadata=ConstructionDeriveRequestMetadata(),
     ) # ConstructionDeriveRequest | 
 
     # example passing only required values which don't have defaults set
