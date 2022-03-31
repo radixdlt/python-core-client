@@ -13,10 +13,14 @@ We regenerate the client against a new spec
 
 ## Why we need custom generation
 
-We use `allOf` throughout our specs, but the generated `ModelComposed` files by the default templates contain a few bugs,
+There are a few bugs / issues to fix:
+* We use `allOf` throughout our specs, but the generated `ModelComposed` files by the default templates contain a few bugs,
 notably this: https://github.com/OpenAPITools/openapi-generator/issues/11299
+* https://stackoverflow.com/questions/66397312/issue-with-python-client-and-open-api-spec-with-discriminator-object
+* Also we wish to improve the README
+* And fix churn in the diffs
 
-So we make use of custom templating to workaround these bugs:
+So we make use of custom templating to workaround these bugs. Helpful docs on custom templating:
 * https://openapi-generator.tech/docs/templating/
 * https://openapi-generator.tech/docs/customization
 

@@ -1103,10 +1103,11 @@ def get_discriminated_classes(cls):
     if is_type_nullable(cls):
         possible_classes.append(cls)
     for discr_cls in cls.discriminator[key].values():
-        if hasattr(discr_cls, 'discriminator') and discr_cls.discriminator is not None:
-            possible_classes.extend(get_discriminated_classes(discr_cls))
-        else:
-            possible_classes.append(discr_cls)
+#        if hasattr(discr_cls, 'discriminator') and discr_cls.discriminator is not None:
+#            possible_classes.extend(get_discriminated_classes(discr_cls))
+#        else:
+#            possible_classes.append(discr_cls)
+        possible_classes.append(discr_cls)
     return possible_classes
 
 
