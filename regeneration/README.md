@@ -23,3 +23,5 @@ Any changes that have been made live in the `5.2.1-template-file-overrides` fold
 ```
 {{! RADIX-MODIFICATION - Explanation }}
 ```
+
+The source templates come from this folder: https://github.com/OpenAPITools/openapi-generator/tree/v5.2.1/modules/openapi-generator/src/main/resources/python
