@@ -10,7 +10,7 @@ cd "$SCRIPT_DIR"
 
 java -jar ./openapi-generator-cli-5.2.1.jar \
     generate \
-    -i "./api.yaml" \
+    -i "./core-api-openapi.yaml" \
     -g python \
     -o "../" \
     -c "./config-custom.yaml"
