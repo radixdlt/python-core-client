@@ -65,6 +65,9 @@ from core_client.model.fee_construction_error import FeeConstructionError
 from core_client.model.fee_construction_error_all_of import FeeConstructionErrorAllOf
 from core_client.model.fee_table import FeeTable
 from core_client.model.fork import Fork
+from core_client.model.fork_voting_result import ForkVotingResult
+from core_client.model.forks_voting_results_request import ForksVotingResultsRequest
+from core_client.model.forks_voting_results_response import ForksVotingResultsResponse
 from core_client.model.internal_server_error import InternalServerError
 from core_client.model.internal_server_error_all_of import InternalServerErrorAllOf
 from core_client.model.invalid_address_error import InvalidAddressError
@@ -168,6 +171,7 @@ from core_client.model.transaction_not_found_error_all_of import TransactionNotF
 from core_client.model.unclaimed_radix_engine_address import UnclaimedRadixEngineAddress
 from core_client.model.unexpected_error import UnexpectedError
 from core_client.model.up_substate_fee_entry import UpSubstateFeeEntry
+from core_client.model.upcoming_fork import UpcomingFork
 from core_client.model.validator import Validator
 from core_client.model.validator_allow_delegation import ValidatorAllowDelegation
 from core_client.model.validator_allow_delegation_all_of import ValidatorAllowDelegationAllOf

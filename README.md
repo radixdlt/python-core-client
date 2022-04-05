@@ -158,6 +158,7 @@ Class | Method | HTTP request | Description
 *ConstructionApi* | [**construction_parse_post**](docs/ConstructionApi.md#construction_parse_post) | **POST** /construction/parse | Parse Transaction
 *ConstructionApi* | [**construction_submit_post**](docs/ConstructionApi.md#construction_submit_post) | **POST** /construction/submit | Submit Transaction
 *EngineApi* | [**engine_configuration_post**](docs/EngineApi.md#engine_configuration_post) | **POST** /engine/configuration | Get Engine Configuration
+*EngineApi* | [**engine_forks_voting_results_post**](docs/EngineApi.md#engine_forks_voting_results_post) | **POST** /engine/forks-voting-results | Get forks voting results for the given epoch
 *EngineApi* | [**engine_status_post**](docs/EngineApi.md#engine_status_post) | **POST** /engine/status | Get Engine Current Status
 *EntityApi* | [**entity_post**](docs/EntityApi.md#entity_post) | **POST** /entity | Get Entity Information
 *KeyApi* | [**key_list_post**](docs/KeyApi.md#key_list_post) | **POST** /key/list | Get public keys
@@ -227,6 +228,9 @@ Class | Method | HTTP request | Description
  - [FeeConstructionErrorAllOf](docs/FeeConstructionErrorAllOf.md)
  - [FeeTable](docs/FeeTable.md)
  - [Fork](docs/Fork.md)
+ - [ForkVotingResult](docs/ForkVotingResult.md)
+ - [ForksVotingResultsRequest](docs/ForksVotingResultsRequest.md)
+ - [ForksVotingResultsResponse](docs/ForksVotingResultsResponse.md)
  - [InternalServerError](docs/InternalServerError.md)
  - [InternalServerErrorAllOf](docs/InternalServerErrorAllOf.md)
  - [InvalidAddressError](docs/InvalidAddressError.md)
@@ -330,6 +334,7 @@ Class | Method | HTTP request | Description
  - [UnclaimedRadixEngineAddress](docs/UnclaimedRadixEngineAddress.md)
  - [UnexpectedError](docs/UnexpectedError.md)
  - [UpSubstateFeeEntry](docs/UpSubstateFeeEntry.md)
+ - [UpcomingFork](docs/UpcomingFork.md)
  - [Validator](docs/Validator.md)
  - [ValidatorAllowDelegation](docs/ValidatorAllowDelegation.md)
  - [ValidatorAllowDelegationAllOf](docs/ValidatorAllowDelegationAllOf.md)

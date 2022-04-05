@@ -28,8 +28,10 @@ from core_client.exceptions import ApiAttributeError
 
 def lazy_import():
     from core_client.model.engine_state_identifier import EngineStateIdentifier
+    from core_client.model.upcoming_fork import UpcomingFork
     from core_client.model.validator import Validator
     globals()['EngineStateIdentifier'] = EngineStateIdentifier
+    globals()['UpcomingFork'] = UpcomingFork
     globals()['Validator'] = Validator
 
 
@@ -88,6 +90,7 @@ class EngineStatusResponse(ModelNormal):
         return {
             'engine_state_identifier': (EngineStateIdentifier,),  # noqa: E501
             'validator_set': ([Validator],),  # noqa: E501
+            'upcoming_fork': (UpcomingFork,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +101,7 @@ class EngineStatusResponse(ModelNormal):
     attribute_map = {
         'engine_state_identifier': 'engine_state_identifier',  # noqa: E501
         'validator_set': 'validator_set',  # noqa: E501
+        'upcoming_fork': 'upcoming_fork',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +149,7 @@ class EngineStatusResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            upcoming_fork (UpcomingFork): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -232,6 +237,7 @@ class EngineStatusResponse(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            upcoming_fork (UpcomingFork): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

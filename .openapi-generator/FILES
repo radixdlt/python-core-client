@@ -72,6 +72,9 @@ core_client/model/fee_construction_error.py
 core_client/model/fee_construction_error_all_of.py
 core_client/model/fee_table.py
 core_client/model/fork.py
+core_client/model/fork_voting_result.py
+core_client/model/forks_voting_results_request.py
+core_client/model/forks_voting_results_response.py
 core_client/model/internal_server_error.py
 core_client/model/internal_server_error_all_of.py
 core_client/model/invalid_address_error.py
@@ -175,6 +178,7 @@ core_client/model/transaction_not_found_error_all_of.py
 core_client/model/unclaimed_radix_engine_address.py
 core_client/model/unexpected_error.py
 core_client/model/up_substate_fee_entry.py
+core_client/model/upcoming_fork.py
 core_client/model/validator.py
 core_client/model/validator_allow_delegation.py
 core_client/model/validator_allow_delegation_all_of.py
@@ -250,6 +254,9 @@ docs/FeeConstructionError.md
 docs/FeeConstructionErrorAllOf.md
 docs/FeeTable.md
 docs/Fork.md
+docs/ForkVotingResult.md
+docs/ForksVotingResultsRequest.md
+docs/ForksVotingResultsResponse.md
 docs/InternalServerError.md
 docs/InternalServerErrorAllOf.md
 docs/InvalidAddressError.md
@@ -357,6 +364,7 @@ docs/TransactionsApi.md
 docs/UnclaimedRadixEngineAddress.md
 docs/UnexpectedError.md
 docs/UpSubstateFeeEntry.md
+docs/UpcomingFork.md
 docs/Validator.md
 docs/ValidatorAllowDelegation.md
 docs/ValidatorAllowDelegationAllOf.md
@@ -376,4 +384,8 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_fork_voting_result.py
+test/test_forks_voting_results_request.py
+test/test_forks_voting_results_response.py
+test/test_upcoming_fork.py
 tox.ini
