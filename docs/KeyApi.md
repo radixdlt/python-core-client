@@ -6,6 +6,8 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**key_list_post**](KeyApi.md#key_list_post) | **POST** /key/list | Get public keys
 [**key_sign_post**](KeyApi.md#key_sign_post) | **POST** /key/sign | Sign transaction
+[**key_vote_post**](KeyApi.md#key_vote_post) | **POST** /key/vote | Vote for the candidate fork (if present)
+[**key_withdraw_vote_post**](KeyApi.md#key_withdraw_vote_post) | **POST** /key/withdraw-vote | Withdraw the vote for the candidate fork
 
 
 # **key_list_post**
@@ -148,6 +150,146 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | An unsigned transaction |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **key_vote_post**
+> UpdateVoteResponse key_vote_post(update_vote_request)
+
+Vote for the candidate fork (if present)
+
+### Example
+
+```python
+import time
+import core_client
+from core_client.api import key_api
+from core_client.model.update_vote_response import UpdateVoteResponse
+from core_client.model.unexpected_error import UnexpectedError
+from core_client.model.update_vote_request import UpdateVoteRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:3333
+# See configuration.py for a list of all supported configuration parameters.
+configuration = core_client.Configuration(
+    host = "http://localhost:3333"
+)
+
+
+# Enter a context with an instance of the API client
+with core_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = key_api.KeyApi(api_client)
+    update_vote_request = UpdateVoteRequest(
+        network_identifier=NetworkIdentifier(
+            network="network_example",
+        ),
+    ) # UpdateVoteRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Vote for the candidate fork (if present)
+        api_response = api_instance.key_vote_post(update_vote_request)
+        pprint(api_response)
+    except core_client.ApiException as e:
+        print("Exception when calling KeyApi->key_vote_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_vote_request** | [**UpdateVoteRequest**](UpdateVoteRequest.md)|  |
+
+### Return type
+
+[**UpdateVoteResponse**](UpdateVoteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Submitted vote transaction information |  -  |
+**500** | Unexpected error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **key_withdraw_vote_post**
+> UpdateVoteResponse key_withdraw_vote_post(update_vote_request)
+
+Withdraw the vote for the candidate fork
+
+### Example
+
+```python
+import time
+import core_client
+from core_client.api import key_api
+from core_client.model.update_vote_response import UpdateVoteResponse
+from core_client.model.unexpected_error import UnexpectedError
+from core_client.model.update_vote_request import UpdateVoteRequest
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:3333
+# See configuration.py for a list of all supported configuration parameters.
+configuration = core_client.Configuration(
+    host = "http://localhost:3333"
+)
+
+
+# Enter a context with an instance of the API client
+with core_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = key_api.KeyApi(api_client)
+    update_vote_request = UpdateVoteRequest(
+        network_identifier=NetworkIdentifier(
+            network="network_example",
+        ),
+    ) # UpdateVoteRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Withdraw the vote for the candidate fork
+        api_response = api_instance.key_withdraw_vote_post(update_vote_request)
+        pprint(api_response)
+    except core_client.ApiException as e:
+        print("Exception when calling KeyApi->key_withdraw_vote_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **update_vote_request** | [**UpdateVoteRequest**](UpdateVoteRequest.md)|  |
+
+### Return type
+
+[**UpdateVoteResponse**](UpdateVoteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Submitted vote withdrawal transaction information |  -  |
 **500** | Unexpected error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

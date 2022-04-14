@@ -179,6 +179,8 @@ core_client/model/unclaimed_radix_engine_address.py
 core_client/model/unexpected_error.py
 core_client/model/up_substate_fee_entry.py
 core_client/model/upcoming_fork.py
+core_client/model/update_vote_request.py
+core_client/model/update_vote_response.py
 core_client/model/validator.py
 core_client/model/validator_allow_delegation.py
 core_client/model/validator_allow_delegation_all_of.py
@@ -365,6 +367,8 @@ docs/UnclaimedRadixEngineAddress.md
 docs/UnexpectedError.md
 docs/UpSubstateFeeEntry.md
 docs/UpcomingFork.md
+docs/UpdateVoteRequest.md
+docs/UpdateVoteResponse.md
 docs/Validator.md
 docs/ValidatorAllowDelegation.md
 docs/ValidatorAllowDelegationAllOf.md
@@ -384,8 +388,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_fork_voting_result.py
-test/test_forks_voting_results_request.py
-test/test_forks_voting_results_response.py
-test/test_upcoming_fork.py
+test/test_update_vote_request.py
+test/test_update_vote_response.py
 tox.ini

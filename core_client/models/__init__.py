@@ -172,6 +172,8 @@ from core_client.model.unclaimed_radix_engine_address import UnclaimedRadixEngin
 from core_client.model.unexpected_error import UnexpectedError
 from core_client.model.up_substate_fee_entry import UpSubstateFeeEntry
 from core_client.model.upcoming_fork import UpcomingFork
+from core_client.model.update_vote_request import UpdateVoteRequest
+from core_client.model.update_vote_response import UpdateVoteResponse
 from core_client.model.validator import Validator
 from core_client.model.validator_allow_delegation import ValidatorAllowDelegation
 from core_client.model.validator_allow_delegation_all_of import ValidatorAllowDelegationAllOf

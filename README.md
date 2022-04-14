@@ -163,6 +163,8 @@ Class | Method | HTTP request | Description
 *EntityApi* | [**entity_post**](docs/EntityApi.md#entity_post) | **POST** /entity | Get Entity Information
 *KeyApi* | [**key_list_post**](docs/KeyApi.md#key_list_post) | **POST** /key/list | Get public keys
 *KeyApi* | [**key_sign_post**](docs/KeyApi.md#key_sign_post) | **POST** /key/sign | Sign transaction
+*KeyApi* | [**key_vote_post**](docs/KeyApi.md#key_vote_post) | **POST** /key/vote | Vote for the candidate fork (if present)
+*KeyApi* | [**key_withdraw_vote_post**](docs/KeyApi.md#key_withdraw_vote_post) | **POST** /key/withdraw-vote | Withdraw the vote for the candidate fork
 *MempoolApi* | [**mempool_post**](docs/MempoolApi.md#mempool_post) | **POST** /mempool | Get Mempool Transactions
 *MempoolApi* | [**mempool_transaction_post**](docs/MempoolApi.md#mempool_transaction_post) | **POST** /mempool/transaction | Get Mempool Transaction
 *NetworkApi* | [**network_configuration_post**](docs/NetworkApi.md#network_configuration_post) | **POST** /network/configuration | Get Network Configuration
@@ -335,6 +337,8 @@ Class | Method | HTTP request | Description
  - [UnexpectedError](docs/UnexpectedError.md)
  - [UpSubstateFeeEntry](docs/UpSubstateFeeEntry.md)
  - [UpcomingFork](docs/UpcomingFork.md)
+ - [UpdateVoteRequest](docs/UpdateVoteRequest.md)
+ - [UpdateVoteResponse](docs/UpdateVoteResponse.md)
  - [Validator](docs/Validator.md)
  - [ValidatorAllowDelegation](docs/ValidatorAllowDelegation.md)
  - [ValidatorAllowDelegationAllOf](docs/ValidatorAllowDelegationAllOf.md)
