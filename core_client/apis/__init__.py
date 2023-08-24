@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.construction_api import ConstructionApi
+#   from .api.lts_api import LTSApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,10 +14,9 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from core_client.api.construction_api import ConstructionApi
-from core_client.api.engine_api import EngineApi
-from core_client.api.entity_api import EntityApi
-from core_client.api.key_api import KeyApi
+from core_client.api.lts_api import LTSApi
 from core_client.api.mempool_api import MempoolApi
-from core_client.api.network_api import NetworkApi
-from core_client.api.transactions_api import TransactionsApi
+from core_client.api.state_api import StateApi
+from core_client.api.status_api import StatusApi
+from core_client.api.stream_api import StreamApi
+from core_client.api.transaction_api import TransactionApi
