@@ -24,9 +24,10 @@ Name | Type | Description | Notes
 **transaction_processor_package** | **str** |  | 
 **metadata_module_package** | **str** |  | 
 **royalty_module_package** | **str** |  | 
-**access_rules_package** | **str** |  | 
+**role_assignment_module_package** | **str** |  | 
 **genesis_helper_package** | **str** |  | 
 **faucet_package** | **str** |  | 
+**pool_package** | **str** |  | 
 **consensus_manager** | **str** |  | 
 **genesis_helper** | **str** |  | 
 **faucet** | **str** |  | 

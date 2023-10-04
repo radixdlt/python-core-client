@@ -108,7 +108,9 @@ with core_client.ApiClient() as api_client:
     api_instance = mempool_api.MempoolApi(api_client)
     mempool_transaction_request = MempoolTransactionRequest(
         network="{{network}}",
-        payload_hash=NotarizedTransactionHash("payload_hash_example"),
+        payload_hashes=[
+            "payload_hashes_example",
+        ],
     ) # MempoolTransactionRequest | 
 
     # example passing only required values which don't have defaults set

@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**object_module_id** | [**ObjectModuleId**](ObjectModuleId.md) |  | 
+**object_module_id** | [**ModuleId**](ModuleId.md) |  | 
 **role_key** | **str** |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

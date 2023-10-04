@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **address** | **str** | The Bech32m-encoded human readable version of the component address | 
 **state** | [**Substate**](Substate.md) |  | 
 **owner_role** | [**Substate**](Substate.md) |  | 

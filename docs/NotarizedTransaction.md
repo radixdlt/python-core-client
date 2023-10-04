@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **hash** | [**NotarizedTransactionHash**](NotarizedTransactionHash.md) |  | 
+**hash_bech32m** | **str** | The Bech32m-encoded human readable &#x60;NotarizedTransactionHash&#x60;. | 
 **signed_intent** | [**SignedTransactionIntent**](SignedTransactionIntent.md) |  | 
 **notary_signature** | [**Signature**](Signature.md) |  | 
 **payload_hex** | **str** | The hex-encoded full notarized transaction payload. Returning this can be disabled in TransactionFormatOptions on your request (default true). | [optional] 

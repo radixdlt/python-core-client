@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **config** | [**Substate**](Substate.md) |  | 
 **state** | [**Substate**](Substate.md) |  | 
 **current_proposal_statistic** | [**Substate**](Substate.md) |  | 

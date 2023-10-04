@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **status** | [**TransactionStatus**](TransactionStatus.md) |  | 
 **output** | [**SborData**](SborData.md) |  | [optional] 
 **error_message** | **str** | Error message (only present if status is Failed or Rejected) | [optional] 

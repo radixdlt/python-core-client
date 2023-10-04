@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **state** | [**Substate**](Substate.md) |  | 
 **owner_role** | [**Substate**](Substate.md) |  | 
 **vaults** | [**[VaultBalance]**](VaultBalance.md) | Any vaults owned directly or indirectly by the component | 

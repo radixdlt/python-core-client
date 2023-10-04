@@ -290,7 +290,7 @@ with core_client.ApiClient() as api_client:
     api_instance = transaction_api.TransactionApi(api_client)
     transaction_receipt_request = TransactionReceiptRequest(
         network="{{network}}",
-        intent_hash=IntentHash("intent_hash_example"),
+        intent_hash="intent_hash_example",
     ) # TransactionReceiptRequest | 
 
     # example passing only required values which don't have defaults set
@@ -363,7 +363,7 @@ with core_client.ApiClient() as api_client:
     api_instance = transaction_api.TransactionApi(api_client)
     transaction_status_request = TransactionStatusRequest(
         network="{{network}}",
-        intent_hash=IntentHash("intent_hash_example"),
+        intent_hash="intent_hash_example",
     ) # TransactionStatusRequest | 
 
     # example passing only required values which don't have defaults set

@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **encoded_receipt** | **str** | The hex-sbor-encoded receipt | 
 **receipt** | [**TransactionReceipt**](TransactionReceipt.md) |  | 
 **instruction_resource_changes** | [**[InstructionResourceChanges]**](InstructionResourceChanges.md) |  | 

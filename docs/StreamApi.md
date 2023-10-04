@@ -57,6 +57,7 @@ with core_client.ApiClient() as api_client:
             typed=True,
             previous=True,
         ),
+        include_proofs=True,
     ) # StreamTransactionsRequest | 
 
     # example passing only required values which don't have defaults set

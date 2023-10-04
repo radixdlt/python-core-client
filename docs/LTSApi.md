@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost:3333/core*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**lts_state_account_all_fungible_resource_balances_post**](LTSApi.md#lts_state_account_all_fungible_resource_balances_post) | **POST** /lts/state/account-all-fungible-resource-balances | Get All Account Balances
+[**lts_state_account_deposit_behaviour_post**](LTSApi.md#lts_state_account_deposit_behaviour_post) | **POST** /lts/state/account-deposit-behaviour | Get Account Deposit Behaviour
 [**lts_state_account_fungible_resource_balance_post**](LTSApi.md#lts_state_account_fungible_resource_balance_post) | **POST** /lts/state/account-fungible-resource-balance | Get Single Account Balance
 [**lts_stream_account_transaction_outcomes_post**](LTSApi.md#lts_stream_account_transaction_outcomes_post) | **POST** /lts/stream/account-transaction-outcomes | Get Account Transaction Outcomes
 [**lts_stream_transaction_outcomes_post**](LTSApi.md#lts_stream_transaction_outcomes_post) | **POST** /lts/stream/transaction-outcomes | Get Transaction Outcomes
@@ -80,6 +81,81 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Account all resource balances response |  -  |
+**500** | Server error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **lts_state_account_deposit_behaviour_post**
+> LtsStateAccountDepositBehaviourResponse lts_state_account_deposit_behaviour_post(lts_state_account_deposit_behaviour_request)
+
+Get Account Deposit Behaviour
+
+Returns deposit behaviour of a single account for multiple resource addresses
+
+### Example
+
+```python
+import time
+import core_client
+from core_client.api import lts_api
+from core_client.model.basic_error_response import BasicErrorResponse
+from core_client.model.lts_state_account_deposit_behaviour_request import LtsStateAccountDepositBehaviourRequest
+from core_client.model.lts_state_account_deposit_behaviour_response import LtsStateAccountDepositBehaviourResponse
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost:3333/core
+# See configuration.py for a list of all supported configuration parameters.
+configuration = core_client.Configuration(
+    host = "http://localhost:3333/core"
+)
+
+
+# Enter a context with an instance of the API client
+with core_client.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = lts_api.LTSApi(api_client)
+    lts_state_account_deposit_behaviour_request = LtsStateAccountDepositBehaviourRequest(
+        network="{{network}}",
+        account_address="account_address_example",
+        resource_addresses=[
+            "resource_addresses_example",
+        ],
+        badge=PresentedBadge(),
+    ) # LtsStateAccountDepositBehaviourRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get Account Deposit Behaviour
+        api_response = api_instance.lts_state_account_deposit_behaviour_post(lts_state_account_deposit_behaviour_request)
+        pprint(api_response)
+    except core_client.ApiException as e:
+        print("Exception when calling LTSApi->lts_state_account_deposit_behaviour_post: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **lts_state_account_deposit_behaviour_request** | [**LtsStateAccountDepositBehaviourRequest**](LtsStateAccountDepositBehaviourRequest.md)|  |
+
+### Return type
+
+[**LtsStateAccountDepositBehaviourResponse**](LtsStateAccountDepositBehaviourResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Account deposit behaviour response |  -  |
 **500** | Server error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -403,7 +479,7 @@ with core_client.ApiClient() as api_client:
     api_instance = lts_api.LTSApi(api_client)
     lts_transaction_status_request = LtsTransactionStatusRequest(
         network="{{network}}",
-        intent_hash=IntentHash("intent_hash_example"),
+        intent_hash="intent_hash_example",
     ) # LtsTransactionStatusRequest | 
 
     # example passing only required values which don't have defaults set
