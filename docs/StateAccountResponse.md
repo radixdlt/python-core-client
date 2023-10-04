@@ -4,6 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**at_ledger_state** | [**LedgerStateSummary**](LedgerStateSummary.md) |  | 
 **info** | [**Substate**](Substate.md) |  | 
 **owner_role** | [**Substate**](Substate.md) |  | 
 **state** | [**Substate**](Substate.md) |  | 

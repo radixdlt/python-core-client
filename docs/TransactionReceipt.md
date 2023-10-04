@@ -6,8 +6,11 @@ The transaction execution receipt
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**TransactionStatus**](TransactionStatus.md) |  | 
+**fee_summary** | [**FeeSummary**](FeeSummary.md) |  | 
+**costing_parameters** | [**CostingParameters**](CostingParameters.md) |  | 
 **state_updates** | [**StateUpdates**](StateUpdates.md) |  | 
-**fee_summary** | [**FeeSummary**](FeeSummary.md) |  | [optional] 
+**fee_source** | [**FeeSource**](FeeSource.md) |  | [optional] 
+**fee_destination** | [**FeeDestination**](FeeDestination.md) |  | [optional] 
 **events** | [**[Event]**](Event.md) |  | [optional] 
 **next_epoch** | [**NextEpoch**](NextEpoch.md) |  | [optional] 
 **output** | [**[SborData]**](SborData.md) | The manifest line-by-line engine return data (only present if &#x60;status&#x60; is &#x60;Succeeded&#x60;) | [optional] 

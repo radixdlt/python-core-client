@@ -5,7 +5,7 @@ The fields partition of the blueprint.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**partition_offset** | **int** | The partition&#39;s offset from the Main module base (64) | 
+**partition_description** | [**PartitionDescription**](PartitionDescription.md) |  | 
 **collection_schema** | [**BlueprintCollectionSchema**](BlueprintCollectionSchema.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

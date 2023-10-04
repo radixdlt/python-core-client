@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **entity** | [**EntityReference**](EntityReference.md) |  | 
-**object_module_id** | [**ObjectModuleId**](ObjectModuleId.md) |  | 
+**object_module_id** | [**ModuleId**](ModuleId.md) |  | 
 **type** | [**EventEmitterIdentifierType**](EventEmitterIdentifierType.md) |  | 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

@@ -5,6 +5,7 @@ Transaction state updates (only present if status is Succeeded or Failed)
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**deleted_partitions** | [**[PartitionId]**](PartitionId.md) |  | 
 **created_substates** | [**[CreatedSubstate]**](CreatedSubstate.md) |  | 
 **updated_substates** | [**[UpdatedSubstate]**](UpdatedSubstate.md) |  | 
 **deleted_substates** | [**[DeletedSubstate]**](DeletedSubstate.md) |  | 

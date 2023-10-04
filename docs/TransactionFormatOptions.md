@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **manifest** | **bool** | Whether to return the raw manifest (default true) | [optional] 
 **blobs** | **bool** | Whether to return the hex-encoded blobs (default false) | [optional] 
-**message** | **bool** | Whether to return the transaction message (default false) | [optional] 
+**message** | **bool** | Whether to return the transaction message (default true) | [optional] 
 **raw_system_transaction** | **bool** | Whether to return the raw hex-encoded system transaction bytes (default false) | [optional] 
 **raw_notarized_transaction** | **bool** | Whether to return the raw hex-encoded notarized transaction bytes (default true) | [optional] 
 **raw_ledger_transaction** | **bool** | Whether to return the raw hex-encoded ledger transaction bytes (default false) | [optional] 
