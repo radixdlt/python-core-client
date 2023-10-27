@@ -29,11 +29,13 @@ from core_client.exceptions import ApiAttributeError
 def lazy_import():
     from core_client.model.lts_committed_transaction_status import LtsCommittedTransactionStatus
     from core_client.model.lts_entity_fungible_balance_changes import LtsEntityFungibleBalanceChanges
+    from core_client.model.lts_entity_non_fungible_balance_changes import LtsEntityNonFungibleBalanceChanges
     from core_client.model.lts_resultant_account_fungible_balances import LtsResultantAccountFungibleBalances
     from core_client.model.state_version import StateVersion
     from core_client.model.transaction_identifiers import TransactionIdentifiers
     globals()['LtsCommittedTransactionStatus'] = LtsCommittedTransactionStatus
     globals()['LtsEntityFungibleBalanceChanges'] = LtsEntityFungibleBalanceChanges
+    globals()['LtsEntityNonFungibleBalanceChanges'] = LtsEntityNonFungibleBalanceChanges
     globals()['LtsResultantAccountFungibleBalances'] = LtsResultantAccountFungibleBalances
     globals()['StateVersion'] = StateVersion
     globals()['TransactionIdentifiers'] = TransactionIdentifiers
@@ -105,6 +107,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
             'accumulator_hash': (str,),  # noqa: E501
             'status': (LtsCommittedTransactionStatus,),  # noqa: E501
             'fungible_entity_balance_changes': ([LtsEntityFungibleBalanceChanges],),  # noqa: E501
+            'non_fungible_entity_balance_changes': ([LtsEntityNonFungibleBalanceChanges],),  # noqa: E501
             'resultant_account_fungible_balances': ([LtsResultantAccountFungibleBalances],),  # noqa: E501
             'total_fee': (str,),  # noqa: E501
             'user_transaction_identifiers': (TransactionIdentifiers,),  # noqa: E501
@@ -121,6 +124,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
         'accumulator_hash': 'accumulator_hash',  # noqa: E501
         'status': 'status',  # noqa: E501
         'fungible_entity_balance_changes': 'fungible_entity_balance_changes',  # noqa: E501
+        'non_fungible_entity_balance_changes': 'non_fungible_entity_balance_changes',  # noqa: E501
         'resultant_account_fungible_balances': 'resultant_account_fungible_balances',  # noqa: E501
         'total_fee': 'total_fee',  # noqa: E501
         'user_transaction_identifiers': 'user_transaction_identifiers',  # noqa: E501
@@ -133,7 +137,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, state_version, proposer_timestamp_ms, accumulator_hash, status, fungible_entity_balance_changes, resultant_account_fungible_balances, total_fee, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, state_version, proposer_timestamp_ms, accumulator_hash, status, fungible_entity_balance_changes, non_fungible_entity_balance_changes, resultant_account_fungible_balances, total_fee, *args, **kwargs):  # noqa: E501
         """LtsCommittedTransactionOutcome - a model defined in OpenAPI
 
         Args:
@@ -142,6 +146,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
             accumulator_hash (str): The hex-encoded transaction accumulator hash. This hash captures the order of all transactions on ledger. This hash is `ACC_{N+1} = combine(ACC_N, LEDGER_HASH_{N}))` (where `combine()` is an arbitrary deterministic function we use). 
             status (LtsCommittedTransactionStatus):
             fungible_entity_balance_changes ([LtsEntityFungibleBalanceChanges]): A list of all fungible balance updates which occurred in this transaction, aggregated by the global entity (such as account) which owns the vaults which were updated. 
+            non_fungible_entity_balance_changes ([LtsEntityNonFungibleBalanceChanges]): Non fungible changes per entity and resource 
             resultant_account_fungible_balances ([LtsResultantAccountFungibleBalances]): A list of the resultant fungible account balances for any balances which changed in this transaction. Only balances for accounts are returned, not any other kind of entity. 
             total_fee (str): The string-encoded decimal representing the total amount of XRD payed as fee (execution, validator tip and royalties). A decimal is formed of some signed integer `m` of attos (`10^(-18)`) units, where `-2^(192 - 1) <= m < 2^(192 - 1)`. 
 
@@ -209,6 +214,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
         self.accumulator_hash = accumulator_hash
         self.status = status
         self.fungible_entity_balance_changes = fungible_entity_balance_changes
+        self.non_fungible_entity_balance_changes = non_fungible_entity_balance_changes
         self.resultant_account_fungible_balances = resultant_account_fungible_balances
         self.total_fee = total_fee
         for var_name, var_value in kwargs.items():
@@ -231,7 +237,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, state_version, proposer_timestamp_ms, accumulator_hash, status, fungible_entity_balance_changes, resultant_account_fungible_balances, total_fee, *args, **kwargs):  # noqa: E501
+    def __init__(self, state_version, proposer_timestamp_ms, accumulator_hash, status, fungible_entity_balance_changes, non_fungible_entity_balance_changes, resultant_account_fungible_balances, total_fee, *args, **kwargs):  # noqa: E501
         """LtsCommittedTransactionOutcome - a model defined in OpenAPI
 
         Args:
@@ -240,6 +246,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
             accumulator_hash (str): The hex-encoded transaction accumulator hash. This hash captures the order of all transactions on ledger. This hash is `ACC_{N+1} = combine(ACC_N, LEDGER_HASH_{N}))` (where `combine()` is an arbitrary deterministic function we use). 
             status (LtsCommittedTransactionStatus):
             fungible_entity_balance_changes ([LtsEntityFungibleBalanceChanges]): A list of all fungible balance updates which occurred in this transaction, aggregated by the global entity (such as account) which owns the vaults which were updated. 
+            non_fungible_entity_balance_changes ([LtsEntityNonFungibleBalanceChanges]): Non fungible changes per entity and resource 
             resultant_account_fungible_balances ([LtsResultantAccountFungibleBalances]): A list of the resultant fungible account balances for any balances which changed in this transaction. Only balances for accounts are returned, not any other kind of entity. 
             total_fee (str): The string-encoded decimal representing the total amount of XRD payed as fee (execution, validator tip and royalties). A decimal is formed of some signed integer `m` of attos (`10^(-18)`) units, where `-2^(192 - 1) <= m < 2^(192 - 1)`. 
 
@@ -305,6 +312,7 @@ class LtsCommittedTransactionOutcome(ModelNormal):
         self.accumulator_hash = accumulator_hash
         self.status = status
         self.fungible_entity_balance_changes = fungible_entity_balance_changes
+        self.non_fungible_entity_balance_changes = non_fungible_entity_balance_changes
         self.resultant_account_fungible_balances = resultant_account_fungible_balances
         self.total_fee = total_fee
         for var_name, var_value in kwargs.items():

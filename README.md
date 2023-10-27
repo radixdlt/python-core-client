@@ -1,6 +1,6 @@
 # Radix Core / System API - Python Clients and Models
 
-- Core API version: v1.0.0
+- Core API version: v1.0.4
 - Package version: 1.0.0
 
 This Core/System API client is generated from the Core/System API spec using an Open API Generator. However, the current python generator is rather buggy,
@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
  - [LtsCommittedTransactionOutcome](docs/LtsCommittedTransactionOutcome.md)
  - [LtsCommittedTransactionStatus](docs/LtsCommittedTransactionStatus.md)
  - [LtsEntityFungibleBalanceChanges](docs/LtsEntityFungibleBalanceChanges.md)
+ - [LtsEntityNonFungibleBalanceChanges](docs/LtsEntityNonFungibleBalanceChanges.md)
  - [LtsFeeFungibleResourceBalanceChange](docs/LtsFeeFungibleResourceBalanceChange.md)
  - [LtsFeeFungibleResourceBalanceChangeType](docs/LtsFeeFungibleResourceBalanceChangeType.md)
  - [LtsFungibleResourceBalance](docs/LtsFungibleResourceBalance.md)
