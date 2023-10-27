@@ -111,7 +111,7 @@ class NonFungibleLocalId(ModelNormal):
         """NonFungibleLocalId - a model defined in OpenAPI
 
         Args:
-            simple_rep (str): The simple string representation of the non-fungible id. For string id types, this is simply the string itself; for integer types, this is the integer as a decimal; and for the bytes id type, this is the lower case hex representation. A non-fungible resource has a fixed `NonFungibleIdType`, so this representation uniquely identifies this non-fungible under the given resource address. 
+            simple_rep (str): The simple string representation of the non-fungible id. * For string ids, this is `<the-string-id>` * For integer ids, this is `#the-integer-id#` * For bytes ids, this is `[the-lower-case-hex-representation]` * For RUID ids, this is `{...-...-...-...}` where `...` are each 16 hex characters. A given non-fungible resource has a fixed `NonFungibleIdType`, so this representation uniquely identifies this non-fungible under the given resource address. 
             id_type (NonFungibleIdType):
             sbor_hex (str): The hex-encoded SBOR-encoded bytes of its non-fungible id
 
@@ -200,7 +200,7 @@ class NonFungibleLocalId(ModelNormal):
         """NonFungibleLocalId - a model defined in OpenAPI
 
         Args:
-            simple_rep (str): The simple string representation of the non-fungible id. For string id types, this is simply the string itself; for integer types, this is the integer as a decimal; and for the bytes id type, this is the lower case hex representation. A non-fungible resource has a fixed `NonFungibleIdType`, so this representation uniquely identifies this non-fungible under the given resource address. 
+            simple_rep (str): The simple string representation of the non-fungible id. * For string ids, this is `<the-string-id>` * For integer ids, this is `#the-integer-id#` * For bytes ids, this is `[the-lower-case-hex-representation]` * For RUID ids, this is `{...-...-...-...}` where `...` are each 16 hex characters. A given non-fungible resource has a fixed `NonFungibleIdType`, so this representation uniquely identifies this non-fungible under the given resource address. 
             id_type (NonFungibleIdType):
             sbor_hex (str): The hex-encoded SBOR-encoded bytes of its non-fungible id
 
