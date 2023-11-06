@@ -1178,5 +1178,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_lts_entity_non_fungible_balance_changes.py
 tox.ini
